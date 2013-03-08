@@ -21,27 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.controller;
+package cn.edu.seu.cose.jellyjolly.quizard.service;
 
-import javax.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 
 /**
  *
- * @author rAy <predator.ray@gmail.com>
+ * @author xeon
  */
-@Controller
-public class HomepageController {
+public interface AdminUserService {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomepage(Model model, HttpSession session) {
-        Object adminUser = session.getAttribute("adminUser");
-        if (adminUser != null) {
-            model.addAttribute("adminUser", adminUser);
-        }
-        return "home";
-    }
+    public AdminUser authenticate(String username, String password)
+            throws AuthenticationException;
+    
+    public AdminUser createAdminUser(String username, String password, 
+            String email);
+    
+    /**
+     *
+     * @param username
+     * @return
+     */
+    public AdminUser findAdminUserByUsername(String username);
+    
+    public AdminUser findAdminUserByEmail(String email);
+    
+    public void deleteAdminUser(String username);
+    
+    public void changePassword(String username, String password);
+    
+    public AdminUser findAdminUser(String username, 
+            String email);
 }

@@ -23,25 +23,43 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
+import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
+import cn.edu.seu.cose.jellyjolly.quizard.service.AdminUserService;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author rAy <predator.ray@gmail.com>
+ * @author xeon
  */
 @Controller
-public class HomepageController {
+public class SignUpController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomepage(Model model, HttpSession session) {
-        Object adminUser = session.getAttribute("adminUser");
-        if (adminUser != null) {
-            model.addAttribute("adminUser", adminUser);
+    private AdminUserService adminUserService;
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String signUp() {
+        return "/signup";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public String signUp(@RequestParam String username,
+            @RequestParam String password, @RequestParam String email,
+            HttpSession session) {
+        AdminUser adminUser = adminUserService.findAdminUser(username,
+                email);
+        if (adminUser == null) {
+            AdminUser newUser = adminUserService.createAdminUser(username,
+                    password, email);
+            session.setAttribute("newUser", newUser);
+            return "redirect:/home";
+        } else {
+            // 1 => email have already sign up
+            return "redirect:signup?error=1";
         }
-        return "home";
+
     }
 }

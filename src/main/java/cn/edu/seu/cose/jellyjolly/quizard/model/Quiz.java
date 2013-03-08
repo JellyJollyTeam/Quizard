@@ -21,27 +21,59 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.controller;
+package cn.edu.seu.cose.jellyjolly.quizard.model;
 
-import javax.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
 
 /**
  *
- * @author rAy <predator.ray@gmail.com>
+ * @author xeon
  */
-@Controller
-public class HomepageController {
+public class Quiz {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomepage(Model model, HttpSession session) {
-        Object adminUser = session.getAttribute("adminUser");
-        if (adminUser != null) {
-            model.addAttribute("adminUser", adminUser);
-        }
-        return "home";
+    private int id;
+    private List questionList;
+    private String belongUser;
+    private String title;
+    private String description;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List getQuestionList() {
+        return questionList;
+    }
+
+    public void setQuestionList(List questionList) {
+        this.questionList = questionList;
+    }
+
+    public String getBelongUser() {
+        return belongUser;
+    }
+
+    public void setBelongUser(String belongUser) {
+        this.belongUser = belongUser;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

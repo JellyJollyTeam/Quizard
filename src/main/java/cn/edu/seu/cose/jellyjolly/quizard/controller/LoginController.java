@@ -23,25 +23,44 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
+import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
+import cn.edu.seu.cose.jellyjolly.quizard.service.AdminUserService;
+import cn.edu.seu.cose.jellyjolly.quizard.service.AuthenticationException;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author rAy <predator.ray@gmail.com>
+ * @author xeon
  */
 @Controller
-public class HomepageController {
+public class LoginController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomepage(Model model, HttpSession session) {
-        Object adminUser = session.getAttribute("adminUser");
-        if (adminUser != null) {
-            model.addAttribute("adminUser", adminUser);
+    private AdminUserService adminUserService;
+
+    public LoginController(AdminUserService adminUserService) {
+        this.adminUserService = adminUserService;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestParam String username,
+            @RequestParam String password, HttpSession session) {
+        try {
+            AdminUser adminUser = this.adminUserService.authenticate(username,
+                    password);
+            session.setAttribute("adminUser", adminUser);
+            return "redirect:/";
+        } catch (AuthenticationException ex) {
+            // 1 => username and password not match
+            return "redirect:/login?error=1"; 
         }
-        return "home";
     }
 }

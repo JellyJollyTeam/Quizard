@@ -21,27 +21,51 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.controller;
+package cn.edu.seu.cose.jellyjolly.quizard.model;
 
-import javax.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author rAy <predator.ray@gmail.com>
+ * @author xeon
  */
-@Controller
-public class HomepageController {
+public class SingleChoice {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomepage(Model model, HttpSession session) {
-        Object adminUser = session.getAttribute("adminUser");
-        if (adminUser != null) {
-            model.addAttribute("adminUser", adminUser);
-        }
-        return "home";
+    private int id;
+    private ChoiceType choiceType;
+    private String content;
+    private int defaultChoice;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ChoiceType isChoiceType() {
+        return choiceType;
+    }
+
+    public void setChoiceType(ChoiceType choiceType) {
+        this.choiceType = choiceType;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getDefaultChoice() {
+        return defaultChoice;
+    }
+
+    public void setDefaultChoice(int defaultChoice) {
+        this.defaultChoice = defaultChoice;
     }
 }

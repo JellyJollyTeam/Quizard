@@ -21,27 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.controller;
+package cn.edu.seu.cose.jellyjolly.quizard.service;
 
-import javax.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
+import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author rAy <predator.ray@gmail.com>
+ * @author xeon
  */
-@Controller
-public class HomepageController {
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getHomepage(Model model, HttpSession session) {
-        Object adminUser = session.getAttribute("adminUser");
-        if (adminUser != null) {
-            model.addAttribute("adminUser", adminUser);
-        }
-        return "home";
-    }
+public interface QuizService {
+    
+    public void addQuiz(Quiz quiz);
+    
+    public List<Quiz> findQuizByUsername(String username);
+    
+    public List<Quiz> findQuizByTitle(String title);
+    
+    
+    public void deleteQuizById(AdminUser adminUser, int quizId);
+    
+    public void changeQuiz(AdminUser adminUser, int quizdId, 
+            Quiz quizard);
+    
 }
