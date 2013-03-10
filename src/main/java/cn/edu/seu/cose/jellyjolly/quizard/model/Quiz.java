@@ -23,6 +23,7 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.model;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,10 +33,37 @@ import java.util.List;
 public class Quiz {
 
     private int id;
+    private Date createDate;
+    private int answeredCount;
+    private String[] tags;
     private List questionList;
-    private String belongUser;
+    private AdminUser owner;
     private String title;
     private String description;
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public int getAnsweredCount() {
+        return answeredCount;
+    }
+
+    public void setAnsweredCount(int answeredCount) {
+        this.answeredCount = answeredCount;
+    }
+
+    public String[] getTags() {
+        return tags;
+    }
+
+    public void setTags(String[] tags) {
+        this.tags = tags;
+    }
 
     public String getTitle() {
         return title;
@@ -61,16 +89,16 @@ public class Quiz {
         this.questionList = questionList;
     }
 
-    public String getBelongUser() {
-        return belongUser;
-    }
-
-    public void setBelongUser(String belongUser) {
-        this.belongUser = belongUser;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public AdminUser getOwner() {
+        return owner;
+    }
+
+    public void setOwner(AdminUser owner) {
+        this.owner = owner;
     }
 
     public void setId(int id) {
