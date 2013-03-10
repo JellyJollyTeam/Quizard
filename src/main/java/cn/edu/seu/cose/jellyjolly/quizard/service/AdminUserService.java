@@ -33,23 +33,18 @@ public interface AdminUserService {
 
     public AdminUser authenticate(String username, String password)
             throws AuthenticationException;
-    
-    public AdminUser createAdminUser(String username, String password, 
+
+    public AdminUser createAdminUser(String username, String password,
             String email);
-    
-    /**
-     *
-     * @param username
-     * @return
-     */
+
     public AdminUser findAdminUserByUsername(String username);
-    
+
     public AdminUser findAdminUserByEmail(String email);
-    
+
     public void deleteAdminUser(String username);
-    
+
     public void changePassword(String username, String password);
-    
-    public AdminUser findAdminUser(String username, 
+
+    public AdminUser findAdminUser(String username,
             String email);
 }
