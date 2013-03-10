@@ -33,20 +33,20 @@ import java.util.List;
 public class Quiz {
 
     private int id;
-    private Date createDate;
+    private Date creationDate;
     private int answeredCount;
     private String[] tags;
-    private List questionList;
+    private List<? extends Question> questionList;
     private AdminUser owner;
     private String title;
     private String description;
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public int getAnsweredCount() {
@@ -81,11 +81,11 @@ public class Quiz {
         this.description = description;
     }
 
-    public List getQuestionList() {
+    public List<? extends Question> getQuestionList() {
         return questionList;
     }
 
-    public void setQuestionList(List questionList) {
+    public void setQuestionList(List<? extends Question> questionList) {
         this.questionList = questionList;
     }
 
