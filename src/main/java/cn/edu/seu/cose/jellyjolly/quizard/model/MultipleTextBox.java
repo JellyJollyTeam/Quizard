@@ -27,7 +27,7 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  *
  * @author xeon
  */
-public class MultipleTextBox implements Question {
+public class MultipleTextBox extends ConcreteQuestion {
 
     private int id;
     private String title;

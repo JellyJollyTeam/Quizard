@@ -29,7 +29,7 @@ import java.util.List;
  *
  * @author xeon
  */
-public class MultipleChoice implements Question {
+public class MultipleChoice extends ConcreteQuestion {
 
     private int id;
     private ChoiceType choiceType;

@@ -30,4 +30,6 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
 public interface Question {
 
     String getTitle();
+
+    void accept(QuestionVisitor visitor);
 }

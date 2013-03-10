@@ -27,7 +27,7 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  *
  * @author xeon
  */
-public class SingleChoice implements Question {
+public class SingleChoice extends ConcreteQuestion {
 
     private int id;
     private ChoiceType choiceType;

@@ -25,36 +25,17 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
 
 /**
  *
- * @author xeon
+ * @author rAy <predator.ray@gmail.com>
  */
-public class SingleTextBox extends ConcreteQuestion {
+public interface QuestionVisitor {
 
-    private int id;
-    private String title;
-    private String placeHolder;
+    void visit(SingleChoice singleChoice);
 
-    public int getId() {
-        return id;
-    }
+    void visit(MultipleChoice multipleChoice);
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    void visit(SingleTextBox singleTextBox);
 
-    @Override
-    public String getTitle() {
-        return title;
-    }
+    void visit(MultipleTextBox multipleTextBox);
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getPlaceHolder() {
-        return placeHolder;
-    }
-
-    public void setPlaceHolder(String placeHolder) {
-        this.placeHolder = placeHolder;
-    }
+    void visit(Question question);
 }
