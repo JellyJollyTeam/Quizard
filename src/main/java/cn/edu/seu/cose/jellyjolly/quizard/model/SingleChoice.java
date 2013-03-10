@@ -27,11 +27,11 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  *
  * @author xeon
  */
-public class SingleChoice {
+public class SingleChoice implements Question {
 
     private int id;
     private ChoiceType choiceType;
-    private String content;
+    private String title;
     private int defaultChoice;
 
     public int getId() {
@@ -50,12 +50,13 @@ public class SingleChoice {
         this.choiceType = choiceType;
     }
 
-    public String getContent() {
-        return content;
+    @Override
+    public String getTitle() {
+        return title;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getDefaultChoice() {

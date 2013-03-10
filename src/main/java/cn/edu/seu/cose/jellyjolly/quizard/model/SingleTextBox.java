@@ -27,10 +27,10 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  *
  * @author xeon
  */
-public class SingleTextBox {
+public class SingleTextBox implements Question {
 
     private int id;
-    private String content;
+    private String title;
     private String placeHolder;
 
     public int getId() {
@@ -41,8 +41,13 @@ public class SingleTextBox {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    @Override
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getPlaceHolder() {
@@ -51,9 +56,5 @@ public class SingleTextBox {
 
     public void setPlaceHolder(String placeHolder) {
         this.placeHolder = placeHolder;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 }

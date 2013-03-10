@@ -29,11 +29,11 @@ import java.util.List;
  *
  * @author xeon
  */
-public class MultipleChoice {
+public class MultipleChoice implements Question {
 
     private int id;
     private ChoiceType choiceType;
-    private String content;
+    private String title;
     private List<Integer> defaultChoices;
 
     public int getId() {
@@ -52,12 +52,13 @@ public class MultipleChoice {
         this.choiceType = choiceType;
     }
 
-    public String getContent() {
-        return content;
+    @Override
+    public String getTitle() {
+        return title;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public List<Integer> getDefaultChoices() {
