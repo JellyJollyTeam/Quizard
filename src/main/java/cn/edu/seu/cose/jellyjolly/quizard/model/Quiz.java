@@ -30,7 +30,7 @@ import java.util.List;
  *
  * @author xeon
  */
-public class Quiz {
+public class Quiz implements QuizElement {
 
     private int id;
     private Date creationDate;
@@ -103,5 +103,13 @@ public class Quiz {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public void accept(QuizVisitor visitor) {
+        visitor.visit(this);
+        for (Question question: questionList) {
+            visitor.visit(question);
+        }
     }
 }

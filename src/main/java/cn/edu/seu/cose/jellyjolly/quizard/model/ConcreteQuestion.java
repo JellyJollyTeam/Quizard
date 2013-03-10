@@ -30,7 +30,7 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
 public abstract class ConcreteQuestion implements Question {
 
     @Override
-    public void accept(QuestionVisitor visitor) {
+    public void accept(QuizVisitor visitor) {
         visitor.visit(this);
     }
 }

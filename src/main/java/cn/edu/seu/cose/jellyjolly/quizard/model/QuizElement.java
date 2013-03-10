@@ -27,15 +27,7 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public interface QuestionVisitor {
+public interface QuizElement {
 
-    void visit(SingleChoice singleChoice);
-
-    void visit(MultipleChoice multipleChoice);
-
-    void visit(SingleTextBox singleTextBox);
-
-    void visit(MultipleTextBox multipleTextBox);
-
-    void visit(Question question);
+    void accept(QuizVisitor visitor);
 }

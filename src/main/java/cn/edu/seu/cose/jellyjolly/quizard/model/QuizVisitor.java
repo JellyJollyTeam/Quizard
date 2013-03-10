@@ -27,7 +27,17 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public interface Question extends QuizElement {
+public interface QuizVisitor {
 
-    String getTitle();
+    void visit(SingleChoice singleChoice);
+
+    void visit(MultipleChoice multipleChoice);
+
+    void visit(SingleTextBox singleTextBox);
+
+    void visit(MultipleTextBox multipleTextBox);
+
+    void visit(Quiz quiz);
+
+    void visit(QuizElement quizElement);
 }
