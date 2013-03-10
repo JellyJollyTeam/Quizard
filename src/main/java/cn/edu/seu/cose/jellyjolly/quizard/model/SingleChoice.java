@@ -23,9 +23,6 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author xeon
