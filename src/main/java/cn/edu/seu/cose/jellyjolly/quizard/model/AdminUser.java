@@ -29,8 +29,17 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  */
 public class AdminUser {
 
-    private String username = null;
-    private String email = null;
+    private int id;
+    private String username;
+    private String email;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
