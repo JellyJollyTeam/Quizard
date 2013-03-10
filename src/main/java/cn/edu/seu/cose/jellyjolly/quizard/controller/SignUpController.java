@@ -42,7 +42,7 @@ public class SignUpController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signUp() {
-        return "/signup";
+        return "signup";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -55,10 +55,10 @@ public class SignUpController {
             AdminUser newUser = adminUserService.createAdminUser(username,
                     password, email);
             session.setAttribute("newUser", newUser);
-            return "redirect:/home";
+            return "redirect:/";
         } else {
             // 1 => email have already sign up
-            return "redirect:signup?error=1";
+            return "redirect:/signup?error=1";
         }
 
     }
