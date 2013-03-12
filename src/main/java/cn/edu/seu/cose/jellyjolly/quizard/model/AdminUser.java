@@ -23,21 +23,23 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.model;
 
+import org.bson.types.ObjectId;
+
 /**
  *
  * @author xeon
  */
 public class AdminUser {
 
-    private int id;
+    private String id;
     private String username;
     private String email;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -29,17 +29,8 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  */
 public class MultipleTextBox extends ConcreteQuestion {
 
-    private int id;
     private String title;
     private String placeHolder;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     @Override
     public String getTitle() {
