@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 package cn.edu.seu.cose.jellyjolly.quizard.dao;
+
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
@@ -34,24 +35,41 @@ import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import com.mongodb.ServerAddress;
 import java.net.UnknownHostException;
+
 /**
  *
  * @author Yan
  */
 public class AdminUserDAO {
-    private AdminUser adminuser;
-    private DB db ;
-    private Mongo mongo ;
-    private DBCollection dbcollection ;
-    private DBObject dbobject;
-    
-    public AdminUserDAO () throws UnknownHostException{
+
+    private DB db;
+    private Mongo mongo;
+    private DBCollection dbcollection;
+    private DBCursor cursor;
+
+    public AdminUserDAO() throws UnknownHostException {
         mongo = new Mongo();
         db = mongo.getDB("quizard");
         dbcollection = db.getCollection("adminuser");
     }
-    public void insertID (int ID){
-        
+
+    public void insertUser(AdminUser adminuser) {
+        DBObject dbobject = new BasicDBObject();
+        dbobject.put("Adminuser", adminuser);
+        dbcollection.save(dbobject);
     }
-    
+
+    public void deleteUser(String userID) {
+        BasicDBObject query = new BasicDBObject("_id", userID);
+        dbcollection.remove(query);
+    }
+
+    public void updateUser(AdminUser adminuser) {//传入新的用户对象
+        DBObject new_dbobject = new BasicDBObject();
+        new_dbobject.put("Adminuser", adminuser);    
+        DBObject query = new BasicDBObject("_id",adminuser.getId());
+        DBObject old_dbobject = new BasicDBObject();
+        old_dbobject = dbcollection.findOne(query);
+        dbcollection.update(old_dbobject, new_dbobject);
+    }
 }
