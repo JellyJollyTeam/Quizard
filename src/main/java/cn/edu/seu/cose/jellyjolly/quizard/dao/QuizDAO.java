@@ -35,6 +35,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import com.mongodb.ServerAddress;
 import java.net.UnknownHostException;
+import org.bson.types.ObjectId;
 /**
  *
  * @author Yan
@@ -49,16 +50,26 @@ public class QuizDAO {
         db = mongo.getDB("quizard");
         dbcollection = db.getCollection("quiz");
     }
-    public void insertQuiz (Quiz quiz){
-        DBObject dbobject = new BasicDBObject();
-        dbobject.put("quiz", dbobject);
-        dbcollection.save(dbobject);
+    public void insertQuiz (Quiz quiz){//待完成，属性不全
+        BasicDBObject temp = new BasicDBObject();
+        temp.put("creationDate", quiz.getCreationDate());
+        temp.put("tags", quiz.getTags());
+        temp.put("questionList", quiz.getQuestionList());
+        temp.put("ownerid", quiz.getOwner().getId());
+        temp.put("title",quiz.getTitle());
+        temp.put("description", quiz.getDescription());
+        dbcollection.save(temp);
+        ObjectId objectid = (ObjectId)temp.get("_id");
+        String id = objectid.toStringMongod();
+        quiz.setId(id); 
     }
-    public void deleteQuiz (String quizID){
-        BasicDBObject query = new BasicDBObject("_id", quizID);
-        dbcollection.dropIndex(query);
+    public void deleteQuiz (String quizId){//待完成，会有后续关联操作
+        ObjectId objId = new ObjectId(quizId);
+        BasicDBObject query = new BasicDBObject();
+        query.put("_id", objId);
+        dbcollection.remove(query);
     }
-    public void updateQuiz (Quiz new_quiz){
+    public void updateQuiz (Quiz quiz){
         
     }
 }
