@@ -58,8 +58,10 @@ public class AdminUserDAO {
         BasicDBObject temp = new BasicDBObject();
         temp.put("username", adminuser.getUsername());
         temp.put("email", adminuser.getEmail());
-        dbcollection.insert(temp);
-        //用数据库生成的id初始化adminuser的id
+        dbcollection.save(temp);
+        ObjectId objectid = (ObjectId)temp.get("_id");
+        String id = objectid.toStringMongod();
+        adminuser.setId(id);                //用数据库生成的id初始化adminuser的id
     }
 
     public void deleteUser(String userId) {
@@ -71,11 +73,11 @@ public class AdminUserDAO {
 
     public void updateUser(AdminUser adminuser) {//传入新的用户对象
         BasicDBObject query = new BasicDBObject();
-        query.put("id",adminuser.getId());
+        ObjectId objectid = new ObjectId(adminuser.getId());
+        query.put("_id", objectid);
         DBObject dbobject = dbcollection.findOne(query); 
-        BasicDBObject new_adminuser = new BasicDBObject(); 
-        //new_adminuser.put("id",adminuser.getId());
-        new_adminuser.put("username",adminuser.getUsername());
-        new_adminuser.put("email",adminuser.getEmail());
+        dbobject.put("username",adminuser.getUsername());
+        dbobject.put("email",adminuser.getEmail());
+        dbcollection.update(query, dbobject);
     }
 }
