@@ -22,8 +22,8 @@
  * THE SOFTWARE.
  */
 package cn.edu.seu.cose.jellyjolly.quizard.dao;
-
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
+import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.WriteConcern;
@@ -35,47 +35,30 @@ import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import com.mongodb.ServerAddress;
 import java.net.UnknownHostException;
-import org.bson.types.ObjectId;
-
 /**
  *
  * @author Yan
  */
-public class AdminUserDAO {
-
+public class QuizDAO {
     private DB db;
     private Mongo mongo;
     private DBCollection dbcollection;
     private DBCursor cursor;
-
-    public AdminUserDAO() throws UnknownHostException {
+    public QuizDAO() throws UnknownHostException{
         mongo = new Mongo();
         db = mongo.getDB("quizard");
-        dbcollection = db.getCollection("adminuser");
+        dbcollection = db.getCollection("quiz");
     }
-
-    public void insertUser(AdminUser adminuser) {
-        BasicDBObject temp = new BasicDBObject();
-        temp.put("username", adminuser.getUsername());
-        temp.put("email", adminuser.getEmail());
-        dbcollection.insert(temp);
-        //用数据库生成的id初始化adminuser的id
+    public void insertQuiz (Quiz quiz){
+        DBObject dbobject = new BasicDBObject();
+        dbobject.put("quiz", dbobject);
+        dbcollection.save(dbobject);
     }
-
-    public void deleteUser(String userId) {
-        ObjectId objId = new ObjectId(userId);
-        BasicDBObject query = new BasicDBObject();
-        query.put("_id", objId);
-        dbcollection.remove(query);
+    public void deleteQuiz (String quizID){
+        BasicDBObject query = new BasicDBObject("_id", quizID);
+        dbcollection.dropIndex(query);
     }
-
-    public void updateUser(AdminUser adminuser) {//传入新的用户对象
-        BasicDBObject query = new BasicDBObject();
-        query.put("id",adminuser.getId());
-        DBObject dbobject = dbcollection.findOne(query); 
-        BasicDBObject new_adminuser = new BasicDBObject(); 
-        //new_adminuser.put("id",adminuser.getId());
-        new_adminuser.put("username",adminuser.getUsername());
-        new_adminuser.put("email",adminuser.getEmail());
+    public void updateQuiz (Quiz new_quiz){
+        
     }
 }
