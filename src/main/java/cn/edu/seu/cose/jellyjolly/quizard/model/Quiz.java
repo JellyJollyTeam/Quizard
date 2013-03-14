@@ -108,7 +108,7 @@ public class Quiz implements QuizElement {
     @Override
     public void accept(QuizVisitor visitor) {
         visitor.visit(this);
-        for (Question question: questionList) {
+        for (Question question : questionList) {
             visitor.visit(question);
         }
     }

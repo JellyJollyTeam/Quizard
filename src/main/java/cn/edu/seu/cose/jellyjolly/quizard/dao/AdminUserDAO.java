@@ -46,7 +46,6 @@ public class AdminUserDAO {
     private DB db;
     private Mongo mongo;
     private DBCollection dbcollection;
-    private DBCursor cursor;
 
     public AdminUserDAO() throws UnknownHostException {
         mongo = new Mongo();
@@ -58,8 +57,11 @@ public class AdminUserDAO {
         BasicDBObject temp = new BasicDBObject();
         temp.put("username", adminuser.getUsername());
         temp.put("email", adminuser.getEmail());
+        
+        //password未写
+        
         dbcollection.save(temp);
-        ObjectId objectid = (ObjectId)temp.get("_id");
+        ObjectId objectid = (ObjectId) temp.get("_id");
         String id = objectid.toStringMongod();
         adminuser.setId(id);                //用数据库生成的id初始化adminuser的id
     }
@@ -73,11 +75,28 @@ public class AdminUserDAO {
 
     public void updateUser(AdminUser adminuser) {//传入新的用户对象
         BasicDBObject query = new BasicDBObject();
-        ObjectId objectid = new ObjectId(adminuser.getId());
-        query.put("_id", objectid);
-        DBObject dbobject = dbcollection.findOne(query); 
-        dbobject.put("username",adminuser.getUsername());
-        dbobject.put("email",adminuser.getEmail());
+        ObjectId userId = new ObjectId(adminuser.getId());
+        query.put("_id", userId);
+        DBObject dbobject = dbcollection.findOne(query);
+        dbobject.put("username", adminuser.getUsername());
+        dbobject.put("email", adminuser.getEmail());
         dbcollection.update(query, dbobject);
+    }
+
+    public AdminUser findUser(String userId) {
+        AdminUser adminuser = new AdminUser();
+        BasicDBObject query = new BasicDBObject();
+        ObjectId objectId = new ObjectId(userId);
+        query.put("_id", objectId);
+        DBObject dbobject = dbcollection.findOne(query);
+        Object id = dbobject.get("_id");
+        adminuser.setId(id.toString());
+       
+        Object username = dbobject.get("username");
+        adminuser.setUsername(username.toString());
+        
+        Object email = dbobject.get("email");
+        adminuser.setEmail(email.toString());
+        return adminuser;
     }
 }
