@@ -42,6 +42,15 @@ public class QuizController {
 
     private QuizService quizService;
     private int maxQuizCount = 25;
+    private int maxQuizCountOfAdmin = 15;
+
+    public int getMaxQuizCountOfAdmin() {
+        return maxQuizCountOfAdmin;
+    }
+
+    public void setMaxQuizCountOfAdmin(int maxQuizCountOfAdmin) {
+        this.maxQuizCountOfAdmin = maxQuizCountOfAdmin;
+    }
 
     public QuizController(QuizService quizService) {
         this.quizService = quizService;
