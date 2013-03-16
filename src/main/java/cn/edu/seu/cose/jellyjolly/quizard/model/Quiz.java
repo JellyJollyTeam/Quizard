@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class Quiz implements QuizElement {
 
-    private int id;
+    private String id;
     private Date creationDate;
     private int answeredCount;
     private String[] tags;
@@ -89,7 +89,7 @@ public class Quiz implements QuizElement {
         this.questionList = questionList;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -101,14 +101,14 @@ public class Quiz implements QuizElement {
         this.owner = owner;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     @Override
     public void accept(QuizVisitor visitor) {
         visitor.visit(this);
-        for (Question question: questionList) {
+        for (Question question : questionList) {
             visitor.visit(question);
         }
     }

@@ -21,31 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.model;
+package cn.edu.seu.cose.jellyjolly.quizard.dao;
+
+import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
 
 /**
  *
- * @author xeon
+ * @author rAy <predator.ray@gmail.com>
  */
-public class MultipleTextBox extends ConcreteQuestion {
+public interface QuizDataAccess {
 
-    private String title;
-    private String placeHolder;
+    void insertQuiz(Quiz quiz);
 
-    @Override
-    public String getTitle() {
-        return title;
-    }
+    void deleteQuiz(String quizId);
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    void updateQuiz(Quiz quiz);
 
-    public String getPlaceHolder() {
-        return placeHolder;
-    }
-
-    public void setPlaceHolder(String placeHolder) {
-        this.placeHolder = placeHolder;
-    }
+    Quiz findQuiz(String quizId);
 }

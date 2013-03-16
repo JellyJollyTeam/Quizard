@@ -29,18 +29,9 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  */
 public class SingleChoice extends ConcreteQuestion {
 
-    private int id;
     private ChoiceType choiceType;
     private String title;
     private int defaultChoice;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public ChoiceType isChoiceType() {
         return choiceType;

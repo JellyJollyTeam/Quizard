@@ -29,15 +29,24 @@ package cn.edu.seu.cose.jellyjolly.quizard.model;
  */
 public class AdminUser {
 
-    private int id;
+    private String id;
     private String username;
     private String email;
+    private String password;
 
-    public int getId() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

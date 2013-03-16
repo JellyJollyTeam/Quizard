@@ -31,18 +31,9 @@ import java.util.List;
  */
 public class MultipleChoice extends ConcreteQuestion {
 
-    private int id;
     private ChoiceType choiceType;
     private String title;
     private List<Integer> defaultChoices;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public ChoiceType isChoiceType() {
         return choiceType;
