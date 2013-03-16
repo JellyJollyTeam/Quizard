@@ -23,8 +23,6 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.model;
 
-import org.bson.types.ObjectId;
-
 /**
  *
  * @author xeon
