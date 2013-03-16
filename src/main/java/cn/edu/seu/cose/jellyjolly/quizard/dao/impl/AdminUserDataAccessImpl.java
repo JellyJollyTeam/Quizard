@@ -21,8 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.dao;
+package cn.edu.seu.cose.jellyjolly.quizard.dao.impl;
 
+import cn.edu.seu.cose.jellyjolly.quizard.dao.AdminUserDataAccess;
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
@@ -41,31 +42,31 @@ import org.bson.types.ObjectId;
  *
  * @author Yan
  */
-public class AdminUserDAO {
+public class AdminUserDataAccessImpl implements AdminUserDataAccess {
 
     private DB db;
-    private Mongo mongo;
     private DBCollection dbcollection;
 
-    public AdminUserDAO() throws UnknownHostException {
-        mongo = new Mongo();
+    public AdminUserDataAccessImpl(Mongo mongo) throws UnknownHostException {
         db = mongo.getDB("quizard");
         dbcollection = db.getCollection("adminuser");
     }
 
+    @Override
     public void insertUser(AdminUser adminuser) {
         BasicDBObject temp = new BasicDBObject();
         temp.put("username", adminuser.getUsername());
         temp.put("email", adminuser.getEmail());
-        
+
         //password未写
-        
+
         dbcollection.save(temp);
         ObjectId objectid = (ObjectId) temp.get("_id");
         String id = objectid.toStringMongod();
         adminuser.setId(id);                //用数据库生成的id初始化adminuser的id
     }
 
+    @Override
     public void deleteUser(String userId) {
         ObjectId objId = new ObjectId(userId);
         BasicDBObject query = new BasicDBObject();
@@ -73,6 +74,7 @@ public class AdminUserDAO {
         dbcollection.remove(query);
     }
 
+    @Override
     public void updateUser(AdminUser adminuser) {//传入新的用户对象
         BasicDBObject query = new BasicDBObject();
         ObjectId userId = new ObjectId(adminuser.getId());
@@ -83,6 +85,7 @@ public class AdminUserDAO {
         dbcollection.update(query, dbobject);
     }
 
+    @Override
     public AdminUser findUser(String userId) {
         AdminUser adminuser = new AdminUser();
         BasicDBObject query = new BasicDBObject();
@@ -91,10 +94,10 @@ public class AdminUserDAO {
         DBObject dbobject = dbcollection.findOne(query);
         Object id = dbobject.get("_id");
         adminuser.setId(id.toString());
-       
+
         Object username = dbobject.get("username");
         adminuser.setUsername(username.toString());
-        
+
         Object email = dbobject.get("email");
         adminuser.setEmail(email.toString());
         return adminuser;
