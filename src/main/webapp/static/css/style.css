@@ -1,0 +1,401 @@
+a {
+    color: #92ABA2;
+}
+
+a:hover {
+    color: #D9E5E1;
+}
+
+input[type="text"]:focus {
+    border-color: #EAF4E7;
+    box-shadow: 0 0 3px green;
+}
+
+input[type="password"]:focus {
+    border-color: #EAF4E7;
+    box-shadow: 0 0 3px green;
+}
+
+textarea:focus {
+    border-color: #EAF4E7;
+    box-shadow: 0 0 3px green;
+}
+
+#mainContent {
+    margin-bottom: 50px;
+}
+
+#leftMain {
+    padding-top: 60px;
+}
+
+#rightMain {
+    padding-top: 100px;
+}
+
+#rightMain form {
+    margin: 0;
+}
+
+#rightMain input {
+    font-size: 18px;
+    width: 100%;
+    padding: 9px;
+}
+
+#rightMain input:focus {
+    border-color: #EAF4E7;
+    box-shadow: 0 0 3px green;
+}
+
+#rightMain .btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 9px;
+    margin: 0px;
+}
+
+#characteristic {
+    font-color: #000000;
+    margin-top: 30px;
+}
+
+#characteristic li {
+    list-style: none;
+    font-size: 24px;
+    color: grey;
+    line-height: 33px;
+}
+
+#header {
+    margin-top: 6px;
+}
+
+#header>h3 {
+    color: #92ABA2;
+}
+
+#header ul.nav>li.active a {
+    color: #A0ADA9;
+    background: #EEF4EC;
+}
+
+#userinfo {
+    margin-top: 20px;
+}
+
+#userinfo>a {
+    text-decoration: none;
+}
+
+#userinfo span {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#footer {
+    margin-top: 60px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #F8FAF2;
+    background: #252525;
+    border-top: inset 1px solid red;
+}
+
+#footer h3 {
+    color: #EAF4E7;
+    float: left;
+    margin-top: 12px;
+}
+
+#footer .copyright {
+    margin-top: 30px;
+    text-align: right;
+    font-size: 10px;
+}
+
+#jj-logo {
+    margin-bottom: 10px;
+}
+
+#jj-logo img {
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+    float: left;
+}
+
+#login {
+    margin: 60px auto;
+}
+
+#login h3 {
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#login h3>a {
+    margin-left: 5px;
+}
+
+#login label>a {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 8px;
+}
+
+#login input[type="text"] {
+    width: 100%;
+}
+
+#login input[type="password"] {
+    width: 100%;
+}
+
+#login ul>li {
+    list-style: none;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#login .btn {
+    width: 80px;
+}
+
+#repository {
+    margin-top: 25px;
+}
+
+#repository .pagination {
+    margin-top: 30px;
+}
+
+#quiz>h1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#quiz>p {
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size: 10px;
+    color: #AAA;
+}
+
+#quiz>.pubinfo>a {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#quizcontent {
+    margin-top: 20px;
+}
+
+#quizcontent legend {
+    font-size: 28px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#quizcontent label.title {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#quizcontent .btn {
+    margin-top: 35px;
+}
+
+#quizzes .media {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+#quizzes .media .media-body a {
+    text-decoration: none;
+}
+
+#quizzes .media .media-body .pubauthor {
+    margin-left: 15px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-size: 5px;
+    color: #AAA;
+}
+
+#quizzes .media .media-body .pubauthor a {
+    margin-right: 2px;
+}
+
+#quizzes .media .media-body .intro {
+    margin-top: 8px;
+    color: #666;
+}
+
+#quizzes .media .media-body .pubdate {
+    margin-top: 8px;
+    margin-left: 15px;
+    margin-bottom: 2px;
+    color: #AAA;
+    font-size: 5px;
+}
+
+#quizzes .media .media-body .media-heading i {
+    margin-left: 5px;
+}
+
+#quizzes .media .pull-right {
+    color: #777;
+}
+
+#quizzes .media .pull-right i {
+    margin-left: 10px;
+}
+
+#admin-info {
+    margin-top: 30px;
+}
+
+#admin-quizzes .repo-title>a {
+    background: #f1f1f1;
+}
+
+#admin-quizzes .repo-title>a>em {
+    margin-left: 3px;
+    font-style: normal;
+    color: #777;
+    letter-spacing: 2pt;
+}
+
+#admin-quizzes>ul>li.more>a {
+    color: #777;
+    background: #f6f6f6;
+}
+
+#admin-feed>.btn-group>.btn {
+    margin-top: 3px;
+    text-decoration: none;
+}
+
+#feeds>.media {
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#feeds>.btn.btn-link {
+    margin-top: 10px;
+    width: 100%;
+    color: #777;
+    border: 1px solid #f1f1f1;
+    background: #f6f6f6;
+    -webkit-border-radius: 5px;
+}
+
+#feeds>.media>.media-object {
+    margin-bottom: 10px;
+}
+
+#feeds>.media .pubdate {
+    color: #bbb;
+    font-size: 10px;
+}
+
+#service .plan .thumbnail {
+    padding: 15px;
+    background: #F8FAF2;
+}
+
+#service .plan .thumbnail>span.pull-right {
+    color: #444;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#service .plan .thumbnail hr {
+    border: 0px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+}
+
+#service .plan .thumbnail>h4 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#service .plan .thumbnail>h4>.pull-right {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#service .plan .thumbnail>ul>li {
+    list-style: none;
+    margin-top: 10px;
+}
+
+#register {
+    margin-top: 60px;
+}
+
+#register input[type="text"] {
+    width: 100%;
+}
+
+#register input[type="password"] {
+    width: 100%;
+}
+
+#register button[type="submit"] {
+    margin-top: 10px;
+}
+
+.viewed {
+    margin-left: 3px;
+}
+
+.answered {
+    margin-left: 3px;
+}
+
+.bigChar {
+    font-size: 64px;
+    line-height: 70px;
+    font-weight: normal;
+    color: #92ABA2;
+}
+
+.emphasis {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 80px;
+    color: #A0ADA9;
+}
+
+.detail {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.detail img {
+    margin-right: 30px;
+}
+
+.btn.btn-info {
+    background: #BCD2B4;
+}
+
+.btn.btn-info:hover {
+    background: #CAD6C6;
+}
+
+.ellipsis {
+    font-size: 48px;
+    margin-top: 80px;
+    margin-left: 40px;
+}
+
