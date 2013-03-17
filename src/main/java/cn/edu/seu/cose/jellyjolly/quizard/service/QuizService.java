@@ -42,6 +42,8 @@ public interface QuizService {
     public List<Quiz> findQuizByTitle(String title);
 
     public List<Quiz> findQuizzes(int offset, int limit);
+    
+    public List<Quiz> findQuizzes(int userId, int offset, int limit);
 
     public void deleteQuizById(AdminUser adminUser, int quizId);
 
