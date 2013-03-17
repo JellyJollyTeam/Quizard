@@ -47,15 +47,15 @@ public class MockQuizService implements QuizService {
     private Quiz quiztest1 = new Quiz();
     private String[] tags = {"test"};
     public MockQuizService() {
-        question1.setId(1);
+        //question1.setId(1);
         question1.setTitle("test");
         question1.setDefaultChoice(1);
         question1.setChoiceType(ChoiceType.SINGLE_CHOICE);
         questiones.add(question1);
-        adminUser.setId(1);
+        //adminUser.setId(1);
         adminUser.setUsername("test");
         adminUser.setEmail("test@test.com");
-        quiztest1.setId(1);
+        //quiztest1.setId(1);
         quiztest1.setAnsweredCount(1);
         quiztest1.setCreationDate(date);
         quiztest1.setOwner(adminUser);
