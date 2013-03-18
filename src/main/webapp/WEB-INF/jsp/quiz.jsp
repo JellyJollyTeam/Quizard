@@ -9,7 +9,7 @@
                 <h1>问卷标题</h1>
                 <p class="pubinfo">2013年12月31日<a href="#">季文昊</a>发布</p>
                 <div id="quizcontent">
-                    <form>
+                    <form action="#" method="post">
                       <fieldset>
                         <legend>第一部分 - 基本信息</legend>
                         <label class="title" for="q_1">1. 你的名字是</label>

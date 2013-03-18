@@ -7,7 +7,7 @@
         <div class="row">
             <div class="span8 offset2">
                 <div id="jj-logo">
-                    <img src="<c:url value="img/jellyjolly.png" />" />
+                    <img src="<c:url value="static/img/jellyjolly.png" />" />
                     <h3>JellyJolly</h3>
                 </div>
                 <p class="copyright">2013&nbsp;JellyJolly</p>

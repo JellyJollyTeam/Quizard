@@ -56,7 +56,7 @@
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                       <h4>感谢您的使用</h4>
-                      需要帮助？查看<a href="get-started.html">使用教程</a>
+                      需要帮助？查看<a href="<c:url value="/get-started" />">使用教程</a>
                 </div>
                 <ul class="nav nav-tabs nav-stacked">
                     <li class="active repo-title">

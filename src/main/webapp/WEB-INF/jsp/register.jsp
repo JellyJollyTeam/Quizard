@@ -7,7 +7,7 @@
         <div id="register">
             <div class="row">
                 <div class="span4 offset2">
-                    <form action="admin-home.html">
+                    <form action="<c:url value="register" />" method="post">
                         <fieldset>
                             <legend>创建你的Quizard账号</legend>
                             <label for="username">用户名：</label>

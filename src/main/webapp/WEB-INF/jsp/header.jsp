@@ -8,12 +8,12 @@
     <title>Quizard - 更简单更轻巧的问卷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Le styles -->
-    <link href="<c:url value="css/bootstrap.css" />" rel="stylesheet" />
-    <link href="<c:url value="css/bootstrap-responsive.css" />" rel="stylesheet" />
-    <link href="<c:url value="css/style.css" />" rel="stylesheet" />
-    <link href="<c:url value="css/navbar.css" />" rel="stylesheet" />
-    <script src="<c:url value="js/bootstrap.min.js" />"></script>
-    <script src="<c:url value="js/holder.js" />"></script>
+    <link href="<c:url value="static/css/bootstrap.css" />" rel="stylesheet" />
+    <link href="<c:url value="static/css/bootstrap-responsive.css" />" rel="stylesheet" />
+    <link href="<c:url value="static/css/style.css" />" rel="stylesheet" />
+    <link href="<c:url value="static/css/navbar.css" />" rel="stylesheet" />
+    <script src="<c:url value="static/js/bootstrap.min.js" />"></script>
+    <script src="<c:url value="static/js/holder.js" />"></script>
 </head>
 <body>
     <div class="container">
