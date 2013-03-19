@@ -27,9 +27,9 @@ package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public enum Keyword {
+public class UnderlineToken extends KeywordToken {
 
-    BRACKETS, SELECTED_BRACKETS,
-    PARENTHESES, SELECTED_PARENTHESES,
-    UNDERLINE, UNDERLINE_BLOCK
+    public UnderlineToken() {
+        super(Keyword.UNDERLINE);
+    }
 }
