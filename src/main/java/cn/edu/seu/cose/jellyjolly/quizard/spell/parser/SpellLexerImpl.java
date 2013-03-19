@@ -21,22 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser;
+
+import cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token.Token;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class TextToken extends AbstractToken<String> {
+public class SpellLexerImpl implements SpellLexer {
 
-    private String text;
+    private CharSequence text;
 
-    public TextToken(String text) {
+    public SpellLexerImpl(CharSequence text) {
         this.text = text;
     }
 
     @Override
-    public String getContent() {
-        return text;
+    public boolean hasNext() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Token next() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -21,15 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser;
+
+import cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token.Token;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public interface Visitor {
+public interface SpellLexer {
 
-    // TODO add other tokens' visit method
+    public boolean hasNext();
 
-    void visit(Token token);
+    public Token next();
 }

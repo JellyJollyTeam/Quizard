@@ -21,22 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser;
+
+import cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token.Token;
+import cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token.Visitor;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class QuestionNumberToken extends AbstractToken<Integer> {
-
-    private int number;
-
-    public QuestionNumberToken(int number) {
-        this.number = number;
-    }
+class SpellParser implements Visitor {
 
     @Override
-    public Integer getContent() {
-        return number;
+    public void visit(Token token) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

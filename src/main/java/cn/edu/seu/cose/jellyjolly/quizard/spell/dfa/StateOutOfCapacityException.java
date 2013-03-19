@@ -21,13 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.dfa;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public enum Delimiter {
+public class StateOutOfCapacityException extends IndexOutOfBoundsException {
 
-    LEGEND_SEPERATOR, NEW_LINE
+    public StateOutOfCapacityException() {
+        super("state out of capacity");
+    }
+
+    public StateOutOfCapacityException(int state) {
+        super("state:" + state + " out of capacity");
+    }
 }

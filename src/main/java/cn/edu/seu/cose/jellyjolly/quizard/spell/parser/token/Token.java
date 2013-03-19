@@ -21,15 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser;
-
-import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public interface SpellParserFacade {
+public interface Token<ContentType> {
 
-    Quiz constructQuizWithSpell(String spell);
+    ContentType getContent();
+
+    void accept(Visitor visitor);
 }

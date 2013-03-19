@@ -21,18 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser;
-
-import cn.edu.seu.cose.jellyjolly.quizard.parser.token.Token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public interface SpellLexer {
+abstract class DelimiterToken extends AbstractToken<Delimiter> {
 
-    public boolean hasNext();
+    private Delimiter delimiter;
 
-    public Token next();
+    protected DelimiterToken(Delimiter delimiter) {
+        this.delimiter = delimiter;
+    }
 
+    @Override
+    public Delimiter getContent() {
+        return delimiter;
+    }
 }

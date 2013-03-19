@@ -21,16 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser;
+
+import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-abstract class AbstractToken<ContentType> implements Token<ContentType> {
+public interface SpellParserFacade {
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
+    Quiz constructQuizWithSpell(String spell);
 }

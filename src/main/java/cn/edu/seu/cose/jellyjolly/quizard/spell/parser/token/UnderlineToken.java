@@ -21,15 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class NewLineToken extends DelimiterToken {
+public class UnderlineToken extends KeywordToken {
 
-    public NewLineToken() {
-        super(Delimiter.NEW_LINE);
+    public UnderlineToken() {
+        super(Keyword.UNDERLINE);
     }
 }

@@ -21,15 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser;
+
+import cn.edu.seu.cose.jellyjolly.quizard.spell.dfa.DeterministicFiniteAutomaton;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class SelectedParenthesesToken extends KeywordToken {
+public class DFAFactory {
 
-    public SelectedParenthesesToken() {
-        super(Keyword.SELECTED_PARENTHESES);
+    private static final char[][][] NUMBER_TRANSITION_TAB = {
+
+    };
+
+    public DeterministicFiniteAutomaton getNumberTokenDFA() {
+        DeterministicFiniteAutomaton dfa = new DeterministicFiniteAutomaton();
+        return dfa;
     }
 }

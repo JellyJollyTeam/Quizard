@@ -21,32 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser;
-
-import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
-import cn.edu.seu.cose.jellyjolly.quizard.parser.token.Token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class SpellParserFacadeImpl implements SpellParserFacade {
+public class SelectedParenthesesToken extends KeywordToken {
 
-    private SpellLexer lexer;
-    private SpellParser parser;
-
-    public SpellParserFacadeImpl(SpellLexer lexer) {
-        this.lexer = lexer;
-        // TODO create parser instance
-    }
-
-    @Override
-    public Quiz constructQuizWithSpell(String spell) {
-        while (lexer.hasNext()) {
-            Token token = lexer.next();
-            parser.visit(token);
-        }
-        // parser.getQuiz();
-        return null;
+    public SelectedParenthesesToken() {
+        super(Keyword.SELECTED_PARENTHESES);
     }
 }

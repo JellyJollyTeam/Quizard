@@ -21,22 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-abstract class KeywordToken extends AbstractToken<Keyword> {
+public class TextToken extends AbstractToken<String> {
 
-    private Keyword keyword;
+    private String text;
 
-    protected KeywordToken(Keyword keyword) {
-        this.keyword = keyword;
+    public TextToken(String text) {
+        this.text = text;
     }
 
     @Override
-    public Keyword getContent() {
-        return keyword;
+    public String getContent() {
+        return text;
     }
 }
