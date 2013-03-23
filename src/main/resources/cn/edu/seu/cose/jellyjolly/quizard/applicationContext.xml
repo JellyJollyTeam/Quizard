@@ -11,5 +11,16 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.AboutController"></bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.CommunityController"></bean>
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.HomepageController"></bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.GetStartedController"></bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.LoginController">
+        <constructor-arg>
+            <null />
+        </constructor-arg>
+    </bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.RegisterController"></bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.RepositoryController"></bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.ServiceController"></bean>
 </beans>
