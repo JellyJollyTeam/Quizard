@@ -29,7 +29,7 @@ package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
  */
 public enum Keyword {
 
-    BRACKETS, SELECTED_BRACKETS,
-    PARENTHESES, SELECTED_PARENTHESES,
-    UNDERLINE, UNDERLINE_BLOCK
+    SELECTED, LEFT_BRACKETS, RIGHT_BRACKETS,
+    LEFT_PARENTHESES, RIGHT_PARENTHESES,
+    UNDERLINE
 }

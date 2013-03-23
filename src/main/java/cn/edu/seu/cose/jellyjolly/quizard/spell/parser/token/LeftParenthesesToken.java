@@ -27,9 +27,9 @@ package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class ParenthesesToken extends KeywordToken {
+public class LeftParenthesesToken extends KeywordToken {
 
-    public ParenthesesToken() {
-        super(Keyword.PARENTHESES);
+    public LeftParenthesesToken() {
+        super(Keyword.LEFT_PARENTHESES);
     }
 }

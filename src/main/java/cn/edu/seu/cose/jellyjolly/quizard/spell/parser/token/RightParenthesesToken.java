@@ -27,9 +27,9 @@ package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class UnderlineBlockToken extends KeywordToken {
+public class RightParenthesesToken extends KeywordToken {
 
-    public UnderlineBlockToken() {
-        super(Keyword.UNDERLINE_BLOCK);
+    public RightParenthesesToken() {
+        super(Keyword.RIGHT_PARENTHESES);
     }
 }
