@@ -52,8 +52,15 @@ public class DeterministicFiniteAutomaton {
     }
 
     public void defineTransition(int fromState, int toState,
+            char condition) {
+        transitionTable.put(fromState, condition, toState);
+    }
+
+    public void defineTransition(int fromState, int toState,
             char[] conditions) {
-        transitionTable.put(fromState, Character.MIN_VALUE, toState);
+        for (char condition : conditions) {
+            defineTransition(fromState, toState, condition);
+        }
     }
 
     public void addEndState(int endState) {
@@ -80,13 +87,13 @@ public class DeterministicFiniteAutomaton {
             boolean isLastIndex  = seqIndex == (charSeq.length() - 1);
             boolean isOnEndState = endStates.contains(currentState);
             if (isLastIndex && isOnEndState) {
-                break;
+                return seqIndex + 1;
             }
 
             // transit
             char currentChar = charSeq.charAt(seqIndex);
             if (!transitionTable.containsKey(currentState, currentChar)) {
-                throw new DFAException();
+                return seqIndex;
             }
             int nextState = transitionTable.get(currentState, currentChar);
 
@@ -94,6 +101,5 @@ public class DeterministicFiniteAutomaton {
             currentState = nextState;
             ++seqIndex;
         }
-        return seqIndex;
     }
 }
