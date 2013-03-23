@@ -56,7 +56,7 @@ textarea:focus {
 }
 
 #characteristic {
-    font-color: #000000;
+    color: #000000;
     margin-top: 30px;
 }
 
@@ -101,7 +101,7 @@ textarea:focus {
     font-size: 14px;
     color: #F8FAF2;
     background: #252525;
-    border-top: inset 1px solid red;
+    border-top: inset 1px red;
 }
 
 #footer h3 {
@@ -209,6 +209,10 @@ textarea:focus {
 
 #quizcontent .btn {
     margin-top: 35px;
+}
+
+#quizzes {
+    min-height: 200px;
 }
 
 #quizzes .media {
