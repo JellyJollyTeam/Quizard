@@ -31,12 +31,15 @@ import cn.edu.seu.cose.jellyjolly.quizard.spell.dfa.DeterministicFiniteAutomaton
  */
 public class DFAFactory {
 
-    private static final char[][][] NUMBER_TRANSITION_TAB = {
-
+    private static final char[] NUM_CHARACTERS = {'0', '1', '2', '3', '4', '5',
+        '6', '7', '8', '9'
     };
 
     public DeterministicFiniteAutomaton getNumberTokenDFA() {
         DeterministicFiniteAutomaton dfa = new DeterministicFiniteAutomaton();
+        dfa.defineTransition(0, 1, NUM_CHARACTERS);
+        dfa.defineTransition(1, 1, NUM_CHARACTERS);
+        dfa.addEndState(1);
         return dfa;
     }
 }
