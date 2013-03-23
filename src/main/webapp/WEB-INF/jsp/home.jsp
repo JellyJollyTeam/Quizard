@@ -2,6 +2,22 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="header.jsp" />
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <ul class="nav">
+                                <li class="active"><a href="<c:url value="/"/>">主页</a></li>
+                                <li><a href="<c:url value="/repository"/>">问卷库</a></li>
+                                <li><a href="<c:url value="/get-started"/>">使用教程</a></li>
+                                <li><a href="<c:url value="/service"/>">服务</a></li>
+                                <li><a href="<c:url value="/community"/>">社区支持</a></li>
+                                <li><a href="<c:url value="/about"/>">关于我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- END OF .navbar -->
+            </div><!-- END OF #header -->
+        </div><!-- END OF .row -->
 
         <!-- Main Content -->
         <div id="mainContent" class="row">
@@ -32,7 +48,7 @@
                 <div class="span10 offset1">
                     <img class="pull-right" data-src="holder.js/500x309" />
                     <h3>便捷的所见即所得问卷编辑</h3>
-                    <p>foo bar</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>
             </div><!-- END OF .detail -->
 
@@ -42,7 +58,7 @@
                 <div class="span10 offset1">
                     <img class="pull-left" data-src="holder.js/500x309" />
                     <h3>简约的类Markdown文本编辑</h3>
-                    <p>foo bar</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>
             </div><!-- END OF .detail -->
         </div>
