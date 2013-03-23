@@ -55,10 +55,11 @@
                         <li class="active">
                                 </c:when>
                                 <c:otherwise>
+                        <li>
                                 </c:otherwise>
+                            </c:choose>
                             <a href="?page=${varStatus.count}">${varStatus.count}</a>
                         </li>
-                            </c:choose>
                         </c:forEach>
                         <c:choose>
                             <c:when test="${hasNext}">
