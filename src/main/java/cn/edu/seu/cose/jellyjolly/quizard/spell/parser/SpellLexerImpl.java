@@ -31,19 +31,23 @@ import cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token.Token;
  */
 public class SpellLexerImpl implements SpellLexer {
 
+    private DFAFactory dfaFactory;
     private CharSequence text;
+    private int cursor;
 
     public SpellLexerImpl(CharSequence text) {
         this.text = text;
+        dfaFactory = new DFAFactory();
+        cursor = 0;
     }
 
     @Override
     public boolean hasNext() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return cursor < text.length();
     }
 
     @Override
     public Token next() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return null;
     }
 }
