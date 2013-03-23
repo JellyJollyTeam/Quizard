@@ -24,12 +24,18 @@
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author Xeon
+ * @author rAy <predator.ray@gmail.com>
  */
 @Controller
 public class RepositoryController {
-    
+
+    @RequestMapping(value = "/repository", method = RequestMethod.GET)
+    public String getQuizzes() {
+        return "repository";
+    }
 }
