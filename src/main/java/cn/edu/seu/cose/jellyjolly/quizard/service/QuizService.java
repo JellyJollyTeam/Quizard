@@ -24,7 +24,8 @@
 package cn.edu.seu.cose.jellyjolly.quizard.service;
 
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
-import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
+import cn.edu.seu.cose.jellyjolly.quizard.model.QuizPack;
+import cn.edu.seu.cose.jellyjolly.spell.Quiz;
 import java.util.List;
 
 /**
@@ -33,20 +34,20 @@ import java.util.List;
  */
 public interface QuizService {
 
-    public void addQuiz(Quiz quiz);
+    QuizPack getQuizPackById(int id);
 
-    public Quiz findQuizById(int id);
+    List<QuizPack> getQuizPackByUsername(String username);
 
-    public List<Quiz> findQuizByUsername(String username);
+    List<QuizPack> searchQuizPackWithKeyword(String keyword,
+            int offset, int limit);
 
-    public List<Quiz> findQuizByTitle(String title);
+    List<QuizPack> getQuizPacks(int offset, int limit);
 
-    public List<Quiz> findQuizzes(int offset, int limit);
-    
-    public List<Quiz> findQuizzes(int userId, int offset, int limit);
+    List<QuizPack> getQuizPacks(int userId, int offset, int limit);
 
-    public void deleteQuizById(AdminUser adminUser, int quizId);
+    void addQuiz(String username, String quizSource);
 
-    public void changeQuiz(AdminUser adminUser, int quizdId,
-            Quiz quizard);
+    void deleteQuizById(String username, int quizId);
+
+    void updateQuiz(AdminUser adminUser, int quizdId, String quizSource);
 }

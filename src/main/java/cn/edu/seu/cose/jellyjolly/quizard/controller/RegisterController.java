@@ -49,17 +49,18 @@ public class RegisterController {
     public String register(@RequestParam String username,
             @RequestParam String password, @RequestParam String email,
             HttpSession session) {
-        AdminUser adminUser = adminUserService.findAdminUser(username,
-                email);
-        if (adminUser == null) {
-            AdminUser newUser = adminUserService.createAdminUser(username,
-                    password, email);
-            session.setAttribute("newUser", newUser);
-            return "redirect:/";
-        } else {
-            // 1 => email have already sign up
+        if (adminUserService.emailHasRegistered(email)) {
+            // 1 => email has already been registered
             return "redirect:/register?error=1";
         }
+        if (adminUserService.usernameHasRegistered(username)) {
+            // 1 => username has already been registered
+            return "redirect:/register?error=2";
+        }
 
+        AdminUser newUser = adminUserService.createAdminUser(username,
+                password, email);
+        // TODO redirect to a success page
+        return "redirect:/";
     }
 }

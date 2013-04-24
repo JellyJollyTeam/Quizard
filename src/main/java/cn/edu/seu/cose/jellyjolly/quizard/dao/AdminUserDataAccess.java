@@ -31,11 +31,20 @@ import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
  */
 public interface AdminUserDataAccess {
 
-    AdminUser findUser(String userId);
+    AdminUser getAdminUserByUsername(String username)
+            throws DataAccessException;
 
-    void insertUser(AdminUser adminuser);
+    AdminUser getAdminUserByEmail(String email)
+            throws DataAccessException;
 
-    void deleteUser(String userId);
+    AdminUser getAdminUserByUsernameIfConfirmed(String username,
+            String password) throws DataAccessException;
 
-    void updateUser(AdminUser adminuser);
+    AdminUser getAdminUserByEmailIfConfirmed(String email,
+            String password) throws DataAccessException;
+
+    AdminUser registerNewAdminUser(String username, String email,
+            String password) throws DataAccessException;
+
+    void updateAdminUser(AdminUser adminUser) throws DataAccessException;
 }

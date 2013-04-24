@@ -33,10 +33,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class GetStartedController {
-    
+
     @RequestMapping(value = "/get-started", method = RequestMethod.GET)
     public String getStarted() {
         return "get-started";
     }
-    
 }

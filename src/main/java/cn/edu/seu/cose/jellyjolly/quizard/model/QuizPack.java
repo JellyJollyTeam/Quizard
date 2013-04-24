@@ -21,19 +21,50 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.spell.dfa;
+package cn.edu.seu.cose.jellyjolly.quizard.model;
+
+import cn.edu.seu.cose.jellyjolly.spell.Quiz;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class StateOutOfCapacityException extends IndexOutOfBoundsException {
+public class QuizPack {
 
-    public StateOutOfCapacityException() {
-        super("state out of capacity");
+    private int id;
+    private AdminUser owner;
+    private String quizSource;
+    private Quiz quiz;
+
+    public int getId() {
+        return id;
     }
 
-    public StateOutOfCapacityException(int state) {
-        super("state:" + state + " out of capacity");
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public AdminUser getOwner() {
+        return owner;
+    }
+
+    public void setOwner(AdminUser owner) {
+        this.owner = owner;
+    }
+
+    public String getQuizSource() {
+        return quizSource;
+    }
+
+    public void setQuizSource(String quizSource) {
+        this.quizSource = quizSource;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 }

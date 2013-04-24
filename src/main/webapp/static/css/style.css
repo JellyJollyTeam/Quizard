@@ -101,7 +101,6 @@ textarea:focus {
     font-size: 14px;
     color: #F8FAF2;
     background: #252525;
-    border-top: inset 1px red;
 }
 
 #footer h3 {
@@ -118,14 +117,6 @@ textarea:focus {
 
 #jj-logo {
     margin-bottom: 10px;
-}
-
-#jj-logo img {
-    margin-top: 10px;
-    margin-right: 10px;
-    height: 40px;
-    width: 40px;
-    float: left;
 }
 
 #login {
@@ -308,6 +299,10 @@ textarea:focus {
 #feeds>.media .pubdate {
     color: #bbb;
     font-size: 10px;
+}
+
+#service {
+    margin-bottom: 50px;
 }
 
 #service .plan .thumbnail {

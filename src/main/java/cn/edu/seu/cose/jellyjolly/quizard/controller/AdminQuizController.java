@@ -33,7 +33,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminQuizController {
-    
-    
-    
 }

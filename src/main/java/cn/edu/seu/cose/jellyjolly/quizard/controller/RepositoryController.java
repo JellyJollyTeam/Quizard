@@ -34,8 +34,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RepositoryController {
 
-    @RequestMapping(value = "/repository", method = RequestMethod.GET)
+    @RequestMapping(value = "/repository", method = RequestMethod.GET,
+            params = "!type")
     public String getQuizzes() {
+        return getNewesstQuizzes();
+    }
+
+    @RequestMapping(value = "/repository", method = RequestMethod.GET,
+            params = "type=new")
+    public String getNewesstQuizzes() {
         return "repository";
+    }
+
+    @RequestMapping(value = "/repository", method = RequestMethod.GET,
+            params = "type=hot")
+    public String getHotQuizzes() {
+        return "repository";
+    }
+
+    @RequestMapping(value = "/repository", method = RequestMethod.POST)
+    public String getQuizzesByKeyword(String keyword) {
+        return "resository";
     }
 }

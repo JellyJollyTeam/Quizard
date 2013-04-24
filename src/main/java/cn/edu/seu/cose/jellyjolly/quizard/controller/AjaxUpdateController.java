@@ -23,8 +23,8 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
-import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
 import cn.edu.seu.cose.jellyjolly.quizard.service.QuizService;
+import cn.edu.seu.cose.jellyjolly.spell.Quiz;
 import java.util.LinkedList;
 import java.util.List;
 import net.sf.json.JSONArray;
@@ -54,14 +54,14 @@ public class AjaxUpdateController {
 
     public ResponseEntity<String> updateAdminQuizzes(@RequestParam int userId,
             @RequestParam int offset, @RequestParam int limit) {
-        List<Quiz> quizzes = quizService.findQuizzes(userId, offset, limit);
+        List<Quiz> quizzes = null; //quizService.findQuizzes(userId, offset, limit);
         List<SimpleQuiz> simpleQuizzes = new LinkedList<SimpleQuiz>();
-        for (Quiz quiz : quizzes) {
-            SimpleQuiz simpleQuiz = new SimpleQuiz();
-            simpleQuiz.setTitle(quiz.getTitle());
-            simpleQuiz.setUrl("?quizid=" + quiz.getId());
-            simpleQuizzes.add(simpleQuiz);
-        }
+//        for (Quiz quiz : quizzes) {
+//            SimpleQuiz simpleQuiz = new SimpleQuiz();
+//            simpleQuiz.setTitle(quiz.getTitle());
+//            simpleQuiz.setUrl("?quizid=" + quiz.getId());
+//            simpleQuizzes.add(simpleQuiz);
+//        }
         JSONArray jsonArray = JSONArray.fromObject(simpleQuizzes);
         JSONObject jsonObj = new JSONObject();
         jsonObj.accumulate("quizzes", jsonArray);

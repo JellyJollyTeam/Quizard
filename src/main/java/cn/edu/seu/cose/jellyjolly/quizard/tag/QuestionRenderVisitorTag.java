@@ -23,13 +23,15 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.tag;
 
-import cn.edu.seu.cose.jellyjolly.quizard.model.MultipleChoice;
-import cn.edu.seu.cose.jellyjolly.quizard.model.MultipleTextBox;
-import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
-import cn.edu.seu.cose.jellyjolly.quizard.model.QuizElement;
-import cn.edu.seu.cose.jellyjolly.quizard.model.QuizVisitor;
-import cn.edu.seu.cose.jellyjolly.quizard.model.SingleChoice;
-import cn.edu.seu.cose.jellyjolly.quizard.model.SingleTextBox;
+import cn.edu.seu.cose.jellyjolly.spell.MultipleChoice;
+import cn.edu.seu.cose.jellyjolly.spell.MultipleTextbox;
+import cn.edu.seu.cose.jellyjolly.spell.Quiz;
+import cn.edu.seu.cose.jellyjolly.spell.QuizElement;
+import cn.edu.seu.cose.jellyjolly.spell.QuizText;
+import cn.edu.seu.cose.jellyjolly.spell.QuizTitle;
+import cn.edu.seu.cose.jellyjolly.spell.QuizVisitor;
+import cn.edu.seu.cose.jellyjolly.spell.SingleChoice;
+import cn.edu.seu.cose.jellyjolly.spell.SingleTextbox;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.Tag;
@@ -64,6 +66,16 @@ public class QuestionRenderVisitorTag extends TagSupport
     }
 
     @Override
+    public void visit(QuizTitle quizTitle) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void visit(QuizText quizText) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
     public void visit(SingleChoice singleChoice) {
         JspWriter out = getWriter();
         throw new UnsupportedOperationException("Not supported yet.");
@@ -75,12 +87,12 @@ public class QuestionRenderVisitorTag extends TagSupport
     }
 
     @Override
-    public void visit(SingleTextBox singleTextBox) {
+    public void visit(SingleTextbox singleTextBox) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void visit(MultipleTextBox multipleTextBox) {
+    public void visit(MultipleTextbox multipleTextBox) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

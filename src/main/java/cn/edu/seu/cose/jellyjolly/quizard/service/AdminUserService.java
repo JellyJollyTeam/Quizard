@@ -31,20 +31,18 @@ import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
  */
 public interface AdminUserService {
 
-    public AdminUser authenticate(String username, String password)
+    AdminUser authenticate(String usernameOrEmail, String password)
             throws AuthenticationException;
 
-    public AdminUser createAdminUser(String username, String password,
-            String email);
+    AdminUser createAdminUser(String username, String password, String email);
 
-    public AdminUser findAdminUserByUsername(String username);
+    AdminUser getAdminUserByUsername(String username);
 
-    public AdminUser findAdminUserByEmail(String email);
+    AdminUser getAdminUserByEmail(String email);
 
-    public void deleteAdminUser(String username);
+    boolean changePassword(String username, String prevPass, String newPass);
 
-    public void changePassword(String username, String password);
+    boolean usernameHasRegistered(String username);
 
-    public AdminUser findAdminUser(String username,
-            String email);
+    boolean emailHasRegistered(String email);
 }

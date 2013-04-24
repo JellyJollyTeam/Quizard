@@ -21,15 +21,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.spell.parser.token;
+package cn.edu.seu.cose.jellyjolly.quizard.dao;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class LeftParenthesesToken extends KeywordToken {
+public class DataAccessException extends RuntimeException {
 
-    public LeftParenthesesToken() {
-        super(Keyword.LEFT_PARENTHESES);
+    private static final String DEFAULT_ERR_MSG =
+            "Data access exception occurred.";
+
+    public DataAccessException() {
+        super(DEFAULT_ERR_MSG);
+    }
+
+    public DataAccessException(String msg) {
+        super(msg);
+    }
+
+    public DataAccessException(Exception cause) {
+        super(DEFAULT_ERR_MSG, cause);
+    }
+
+    public DataAccessException(String msg, Exception cause) {
+        super(msg, cause);
     }
 }

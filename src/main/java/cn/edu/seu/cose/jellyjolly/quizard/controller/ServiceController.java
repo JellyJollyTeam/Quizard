@@ -33,10 +33,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ServiceController {
-    
+
     @RequestMapping(value = "/service", method = RequestMethod.GET)
     public String service() {
         return "service";
     }
-    
 }

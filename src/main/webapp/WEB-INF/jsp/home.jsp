@@ -46,7 +46,7 @@
         <div id="details">
             <div class="detail row">
                 <div class="span10 offset1">
-                    <img class="pull-right" data-src="holder.js/500x309" />
+                    <img class="pull-left" data-src="holder.js/500x309" />
                     <h3>便捷的所见即所得问卷编辑</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>
@@ -56,7 +56,7 @@
 
             <div class="detail row">
                 <div class="span10 offset1">
-                    <img class="pull-left" data-src="holder.js/500x309" />
+                    <img class="pull-right" src="<c:url value="static/img/spell-sample.png" />" />
                     <h3>简约的类Markdown文本编辑</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>

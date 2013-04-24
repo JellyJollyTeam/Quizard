@@ -23,7 +23,6 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
-import cn.edu.seu.cose.jellyjolly.quizard.model.Quiz;
 import cn.edu.seu.cose.jellyjolly.quizard.service.QuizService;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -53,16 +52,16 @@ public class QuizController {
 
     @RequestMapping( value = "/quiz/$(id)", method = RequestMethod.GET)
     public String getQuiz(@PathVariable int id, Model model) {
-        Quiz quiz = quizService.findQuizById(id);
-        model.addAttribute("quiz", quiz);
+//        Quiz quiz = quizService.findQuizById(id);
+//        model.addAttribute("quiz", quiz);
         return "quiz";
     }
 
     @RequestMapping(value = "/quizzes", method = RequestMethod.GET)
     public String getQuizzes(@RequestParam(defaultValue = "1") int page, Model model) {
         int offset = (page <= 0) ? 1 : page - 1;
-        List<Quiz> quizzes = quizService.findQuizzes(offset, maxQuizCount);
-        model.addAttribute("quizzes", quizzes);
+//        List<Quiz> quizzes = quizService.findQuizzes(offset, maxQuizCount);
+//        model.addAttribute("quizzes", quizzes);
         return "repository";
     }
 

@@ -33,10 +33,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class CommunityController {
-    
+
     @RequestMapping(value = "/community", method = RequestMethod.GET)
     public String community() {
         return "community";
     }
-    
 }

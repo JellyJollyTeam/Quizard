@@ -24,11 +24,29 @@
         <div id="repository" class="row">
             <div class="span10 offset1">
                 <ul class="nav nav-tabs">
+                    <c:choose>
+                        <c:when test="${(empty param.type) or (param.type == 'new')}">
                   <li class="active">
-                    <a href="#">最新问卷</a>
+                        </c:when>
+                        <c:otherwise>
+                  <li>
+                        </c:otherwise>
+                    </c:choose>
+                    <a href="?type=new">最新问卷</a>
                   </li>
-                  <li><a href="#">最热问卷</a></li>
-                  <li><a href="#">自定义</a></li>
+                    <c:choose>
+                        <c:when test="${param.type == 'hot'}">
+                  <li class="active">
+                        </c:when>
+                        <c:otherwise>
+                  <li>
+                        </c:otherwise>
+                    </c:choose>
+                      <a href="?type=hot">最热问卷</a>
+                  </li>
+                  <li>
+                      <a href="#">自定义</a>
+                  </li>
                 </ul>
                 <div id="quizzes">
                     <c:forEach var="quiz" items="${quizzes}">

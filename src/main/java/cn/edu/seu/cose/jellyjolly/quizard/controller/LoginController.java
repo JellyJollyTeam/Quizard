@@ -50,13 +50,13 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST, params ="rememberMe=true")
+    @RequestMapping(value = "/login", method = RequestMethod.POST,
+            params ="rememberMe=true")
     public String loginAndSaveStatus(@RequestParam String username,
             @RequestParam String password, HttpSession session) {
         try {
-            AdminUser adminUser = this.adminUserService.authenticate(username,
+            AdminUser adminUser = adminUserService.authenticate(username,
                     password);
-
             session.setAttribute("adminUser", adminUser);
             return "redirect:/";
         } catch (AuthenticationException ex) {
@@ -64,13 +64,14 @@ public class LoginController {
             return "redirect:/login?error=1";
         }
     }
-        @RequestMapping(value = "/login", method = RequestMethod.POST, params ="!rememberMe")
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST,
+            params ="!rememberMe")
     public String login(@RequestParam String username,
             @RequestParam String password, HttpSession session) {
         try {
-            AdminUser adminUser = this.adminUserService.authenticate(username,
+            AdminUser adminUser = adminUserService.authenticate(username,
                     password);
-
             session.setAttribute("adminUser", adminUser);
             return "redirect:/";
         } catch (AuthenticationException ex) {
