@@ -23,7 +23,7 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
-import org.springframework.stereotype.Component;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,30 +32,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author rAy <predator.ray@gmail.com>
  */
-@Component
 @Controller
-public class RepositoryController {
+public class LogoutController {
 
-    @RequestMapping(value = "/repository", method = RequestMethod.GET,
-            params = "!type")
-    public String getQuizzes() {
-        return getNewesstQuizzes();
-    }
-
-    @RequestMapping(value = "/repository", method = RequestMethod.GET,
-            params = "type=new")
-    public String getNewesstQuizzes() {
-        return "repository";
-    }
-
-    @RequestMapping(value = "/repository", method = RequestMethod.GET,
-            params = "type=hot")
-    public String getHotQuizzes() {
-        return "repository";
-    }
-
-    @RequestMapping(value = "/repository", method = RequestMethod.POST)
-    public String getQuizzesByKeyword(String keyword) {
-        return "resository";
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String login(HttpSession session) {
+        session.removeAttribute("adminUser");
+        return "redirect:/login";
     }
 }

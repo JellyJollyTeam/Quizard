@@ -26,6 +26,8 @@ package cn.edu.seu.cose.jellyjolly.quizard.controller;
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import cn.edu.seu.cose.jellyjolly.quizard.service.AdminUserService;
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,10 +37,16 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author xeon
  */
+@Component
 @Controller
 public class RegisterController {
 
+    @Autowired
     private AdminUserService adminUserService;
+
+    public RegisterController(AdminUserService adminUserService) {
+        this.adminUserService = adminUserService;
+    }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register() {

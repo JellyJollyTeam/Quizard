@@ -59,7 +59,7 @@ public class MockAdminUserDataAccess implements AdminUserDataAccess {
     public AdminUser getAdminUserByUsernameIfConfirmed(
             String username, String password) throws DataAccessException {
         AdminUser adminUser = usernameMapped.get(username);
-        boolean confirmed = (password != null)
+        boolean confirmed = (adminUser != null) && (password != null)
                 && password.equals(adminUser.getPassword());
         return confirmed ? adminUser : null;
     }

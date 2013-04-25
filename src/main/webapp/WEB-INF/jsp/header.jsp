@@ -15,15 +15,27 @@
     <script src="<c:url value="static/js/jquery-1.9.1.min.js" />"></script>
     <script src="<c:url value="static/js/bootstrap.min.js" />"></script>
     <script src="<c:url value="static/js/holder.js" />"></script>
+    <script src="<c:url value="static/js/check.js" />"></script>
 </head>
 <body>
     <div class="container">
         <!-- Title and Navbar -->
         <div class="row">
             <div id="header" class="span12">
+                <c:choose>
+                    <c:when test="${empty adminUser}">
                 <div id="userinfo" class="pull-right">
                     <a href="<c:url value="/register"/>">注册</a>
                     <span>&middot;</span>
                     <a href="<c:url value="/login"/>">登录</a>
                 </div>
+                    </c:when>
+                    <c:otherwise>
+                <div id="userinfo" class="pull-right">
+                    <a href="#"<c:out value="${adminUser.username}"/></a>
+                    <span>&middot;</span>
+                    <a href="<c:url value="/logout"/>">注销</a>
+                </div>
+                    </c:otherwise>
+                </c:choose>
                 <h3 class="muted">Quizard</h3>

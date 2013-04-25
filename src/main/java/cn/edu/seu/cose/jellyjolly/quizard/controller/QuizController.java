@@ -25,6 +25,8 @@ package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
 import cn.edu.seu.cose.jellyjolly.quizard.service.QuizService;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,9 +38,11 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author Xeon
  */
+@Component
 @Controller
 public class QuizController {
 
+    @Autowired
     private QuizService quizService;
     private int maxQuizCount = 25;
 

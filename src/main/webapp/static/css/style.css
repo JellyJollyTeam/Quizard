@@ -258,6 +258,7 @@ textarea:focus {
 
 #admin-quizzes .repo-title>a {
     background: #f1f1f1;
+    cursor: pointer;
 }
 
 #admin-quizzes .repo-title>a>em {

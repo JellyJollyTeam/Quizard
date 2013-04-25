@@ -41,7 +41,7 @@ public class HomepageController {
         Object adminUser = session.getAttribute("adminUser");
         if (adminUser != null) {
             model.addAttribute("adminUser", adminUser);
-            return "admin-home"; 
+            return "admin-home";
         }
         return "home";
     }

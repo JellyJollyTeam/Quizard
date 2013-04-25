@@ -31,10 +31,17 @@
                     <form action="<c:url value="/login" />" method="post">
                         <fieldset>
                             <legend>登录你的Quizard账号</legend>
+                            <c:if test="${!empty param.error}">
+                            <div class="alert alert-error">
+                                <c:choose>
+                                    <c:when test="${param.error==1}">用户名或密码错误</c:when>
+                                </c:choose>
+                            </div>
+                            </c:if>
                             <label for="username">用户名/邮箱：<a class="pull-right" href="<c:url value="/register" />">没有账号？</a></label>
-                            <input id="username" name="username" class="input" type="text" placeholder="用户名/邮箱">
+                            <input id="username" name="username" class="input" type="text" placeholder="用户名/邮箱" tabindex="1"/>
                             <label for="password">密码：<a class="pull-right" href="<c:url value="/find-password" />">忘记密码？</a></label>
-                            <input id="password" name="password" class="input" type="password" placeholder="密码">
+                            <input id="password" name="password" class="input" type="password" placeholder="密码" tabindex="2"/>
                             <label class="checkbox">
                                 <input type="checkbox" name="rememberMe">记住我</input>
                             </label>

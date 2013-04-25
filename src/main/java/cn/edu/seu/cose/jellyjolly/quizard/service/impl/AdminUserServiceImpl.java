@@ -27,6 +27,7 @@ import cn.edu.seu.cose.jellyjolly.quizard.dao.AdminUserDataAccess;
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import cn.edu.seu.cose.jellyjolly.quizard.service.AdminUserService;
 import cn.edu.seu.cose.jellyjolly.quizard.service.AuthenticationException;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -35,6 +36,10 @@ import cn.edu.seu.cose.jellyjolly.quizard.service.AuthenticationException;
 public class AdminUserServiceImpl implements AdminUserService {
 
     private AdminUserDataAccess adminUserDataAccess;
+    private static final String USERNAME_REGEX =
+            "^[a-zA-Z][a-zA-Z0-9_]{4,15}$"; // 5~16
+    private static final String EMAIL_REGEX =
+            "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
 
     public AdminUserServiceImpl(AdminUserDataAccess adminUserDataAccess) {
         this.adminUserDataAccess = adminUserDataAccess;
@@ -100,12 +105,10 @@ public class AdminUserServiceImpl implements AdminUserService {
     }
 
     private boolean isUsername(String input) {
-        // TODO judge
-        return false;
+        return Pattern.matches(USERNAME_REGEX, input);
     }
 
     private boolean isEmail(String input) {
-        // TODO judge
-        return false;
+        return Pattern.matches(EMAIL_REGEX, input);
     }
 }

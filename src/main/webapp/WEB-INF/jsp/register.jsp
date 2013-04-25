@@ -28,13 +28,14 @@
             </script>
             <div class="row">
                 <div class="span4 offset2">
-                    <form action="<c:url value="register" />" method="post">
+                    <form id="registerForm" action="<c:url value="register" />" method="post" onsubmit="return checkRegister();">
                         <fieldset>
                             <legend>创建你的Quizard账号</legend>
+                            <div id="errorMsg" class="alert alert-error hidden"></div>
                             <label for="username">用户名：</label>
                             <input id="username" name="username" class="input" type="text" placeholder="用户名">
                             <label for="username">邮箱：</label>
-                            <input id="username" name="email" class="input" type="text" placeholder="邮箱">
+                            <input id="email" name="email" class="input" type="text" placeholder="邮箱">
                             <label for="password">密码：</label>
                             <input id="password" name="password" class="input" type="password" placeholder="密码">
                             <label for="confirm">确认密码：</label>
