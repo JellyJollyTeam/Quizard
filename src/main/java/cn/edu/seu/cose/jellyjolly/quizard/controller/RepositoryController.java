@@ -23,6 +23,7 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
+import cn.edu.seu.cose.jellyjolly.quizard.service.QuizService;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RepositoryController {
 
+    private QuizService quizService;
+
+    public RepositoryController(QuizService quizService) {
+        this.quizService = quizService;
+    }
+
     @RequestMapping(value = "/repository", method = RequestMethod.GET,
             params = "!type")
     public String getQuizzes() {
@@ -45,6 +52,9 @@ public class RepositoryController {
     @RequestMapping(value = "/repository", method = RequestMethod.GET,
             params = "type=new")
     public String getNewesstQuizzes() {
+        int offset = 0;
+        int limit = 0;
+        quizService.getNewestQuizLinks(offset, limit);
         return "repository";
     }
 

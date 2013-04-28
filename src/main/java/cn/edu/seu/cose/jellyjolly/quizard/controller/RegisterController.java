@@ -25,10 +25,12 @@ package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import cn.edu.seu.cose.jellyjolly.quizard.service.AdminUserService;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,19 +58,19 @@ public class RegisterController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@RequestParam String username,
             @RequestParam String password, @RequestParam String email,
-            HttpSession session) {
+            Model model) {
         if (adminUserService.emailHasRegistered(email)) {
             // 1 => email has already been registered
             return "redirect:/register?error=1";
         }
         if (adminUserService.usernameHasRegistered(username)) {
-            // 1 => username has already been registered
+            // 2 => username has already been registered
             return "redirect:/register?error=2";
         }
 
         AdminUser newUser = adminUserService.createAdminUser(username,
                 password, email);
-        // TODO redirect to a success page
-        return "redirect:/";
+        model.addAttribute("newUser", newUser);
+        return "register-success";
     }
 }

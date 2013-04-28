@@ -24,8 +24,8 @@
 package cn.edu.seu.cose.jellyjolly.quizard.service;
 
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
+import cn.edu.seu.cose.jellyjolly.quizard.model.QuizLink;
 import cn.edu.seu.cose.jellyjolly.quizard.model.QuizPack;
-import cn.edu.seu.cose.jellyjolly.spell.Quiz;
 import java.util.List;
 
 /**
@@ -37,6 +37,10 @@ public interface QuizService {
     QuizPack getQuizPackById(int id);
 
     List<QuizPack> getQuizPackByUsername(String username);
+
+    List<QuizLink> getNewestQuizLinks(int offset, int limit);
+
+    List<QuizLink> getHottestQuizLinks(int offset, int limit);
 
     List<QuizPack> searchQuizPackWithKeyword(String keyword,
             int offset, int limit);

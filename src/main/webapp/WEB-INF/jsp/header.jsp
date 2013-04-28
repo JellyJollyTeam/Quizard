@@ -32,7 +32,7 @@
                     </c:when>
                     <c:otherwise>
                 <div id="userinfo" class="pull-right">
-                    <a href="#"<c:out value="${adminUser.username}"/></a>
+                    <a href="#"><c:out value="${adminUser.username}"/></a>
                     <span>&middot;</span>
                     <a href="<c:url value="/logout"/>">注销</a>
                 </div>

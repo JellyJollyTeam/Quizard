@@ -23,9 +23,9 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.service.impl;
 
-import cn.edu.seu.cose.jellyjolly.quizard.dao.AdminUserDataAccess;
 import cn.edu.seu.cose.jellyjolly.quizard.dao.QuizPackDataAccess;
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
+import cn.edu.seu.cose.jellyjolly.quizard.model.QuizLink;
 import cn.edu.seu.cose.jellyjolly.quizard.model.QuizPack;
 import cn.edu.seu.cose.jellyjolly.quizard.service.QuizService;
 import cn.edu.seu.cose.jellyjolly.spell.Quiz;
@@ -55,6 +55,16 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public List<QuizPack> getQuizPackByUsername(String username) {
         return quizPackDataAccess.getQuizPacksByUsername(username);
+    }
+
+    @Override
+    public List<QuizLink> getNewestQuizLinks(int offset, int limit) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<QuizLink> getHottestQuizLinks(int offset, int limit) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override

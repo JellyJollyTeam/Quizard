@@ -354,6 +354,15 @@ textarea:focus {
     margin-top: 10px;
 }
 
+#register-success {
+    margin-bottom: 50px;
+}
+
+#register-success>p>span {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .viewed {
     margin-left: 3px;
 }
