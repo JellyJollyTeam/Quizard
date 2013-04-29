@@ -31,12 +31,21 @@ import java.util.Date;
  */
 public class QuizLink {
 
+    private int id;
     private String title;
     private String[] tags;
     private int answeredCount;
     private Date creationDate;
     private String description;
     private AdminUser owner;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

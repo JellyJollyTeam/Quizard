@@ -23,11 +23,15 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
+import cn.edu.seu.cose.jellyjolly.quizard.model.QuizLink;
 import cn.edu.seu.cose.jellyjolly.quizard.service.QuizService;
+import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -38,29 +42,43 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RepositoryController {
 
     private QuizService quizService;
+    private int quizPerPage = 10;
 
     public RepositoryController(QuizService quizService) {
         this.quizService = quizService;
     }
 
+    public void setQuizPerPage(int quizPerPage) {
+        this.quizPerPage = quizPerPage;
+    }
+
     @RequestMapping(value = "/repository", method = RequestMethod.GET,
             params = "!type")
-    public String getQuizzes() {
-        return getNewesstQuizzes();
+    public String getQuizzes(Model model) {
+        return getNewestQuizzes(1, model);
     }
 
     @RequestMapping(value = "/repository", method = RequestMethod.GET,
             params = "type=new")
-    public String getNewesstQuizzes() {
-        int offset = 0;
-        int limit = 0;
-        quizService.getNewestQuizLinks(offset, limit);
+    public String getNewestQuizzes(@RequestParam(defaultValue = "1") int page,
+            Model model) {
+        int offset = (page <= 0) ? 0 : ((page - 1) * quizPerPage);
+        int limit = quizPerPage;
+        List<QuizLink> quizLinks = quizService
+                .getNewestQuizLinks(offset, limit);
+        model.addAttribute("quizLinks", quizLinks);
         return "repository";
     }
 
     @RequestMapping(value = "/repository", method = RequestMethod.GET,
             params = "type=hot")
-    public String getHotQuizzes() {
+    public String getHotQuizzes(@RequestParam(defaultValue = "1") int page,
+            Model model) {
+        int offset = (page <= 0) ? 0 : ((page - 1) * quizPerPage);
+        int limit = quizPerPage;
+        List<QuizLink> quizLinks = quizService
+                .getHottestQuizLinks(offset, limit);
+        model.addAttribute("quizLinks", quizLinks);
         return "repository";
     }
 

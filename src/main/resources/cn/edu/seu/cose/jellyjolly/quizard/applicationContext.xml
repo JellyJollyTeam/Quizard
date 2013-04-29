@@ -38,6 +38,8 @@
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.RegisterController">
         <constructor-arg ref="adminUserService"/>
     </bean>
-    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.RepositoryController"/>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.RepositoryController">
+        <constructor-arg ref="quizService"/>
+    </bean>
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.ServiceController"/>
 </beans>

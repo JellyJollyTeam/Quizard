@@ -1,0 +1,17 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <ul class="nav">
+                                <li id="nav-home"><a href="<c:url value="/"/>">主页</a></li>
+                                <li id="nav-repo"><a href="<c:url value="/repository"/>">问卷库</a></li>
+                                <li id="nav-tutor"><a href="<c:url value="/get-started"/>">使用教程</a></li>
+                                <li id="nav-srv"><a href="<c:url value="/service"/>">服务</a></li>
+                                <li id="nav-comm"><a href="<c:url value="/community"/>">社区支持</a></li>
+                                <li id="nav-about"><a href="<c:url value="/about"/>">关于我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- END OF .navbar -->

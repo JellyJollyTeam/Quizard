@@ -1,0 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+        <!-- Title and Navbar -->
+        <div class="row">
+            <div id="header" class="span12">
+                <%@include file="user-login.jspf" %>
+                <h3 class="muted">Quizard</h3>
+                <%@include file="navbar.jspf" %>
+            </div><!-- END OF #header -->
+        </div><!-- END OF .row -->

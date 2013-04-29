@@ -23,6 +23,7 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.dao;
 
+import cn.edu.seu.cose.jellyjolly.quizard.model.QuizLink;
 import cn.edu.seu.cose.jellyjolly.quizard.model.QuizPack;
 import cn.edu.seu.cose.jellyjolly.spell.Quiz;
 import java.util.List;
@@ -41,6 +42,10 @@ public interface QuizPackDataAccess {
     List<QuizPack> searchQuizPacks(String keyword, int offset, int limit);
 
     List<QuizPack> getQuizPacks(int offset, int limit);
+
+    List<QuizLink> getQuizLinksOrderByCreationTime(int offset, int limit);
+
+    List<QuizLink> getQuizLinksOrderByAnsweredCount(int offset, int limit);
 
     List<QuizPack> getQuizPacksByUsername(String username);
 

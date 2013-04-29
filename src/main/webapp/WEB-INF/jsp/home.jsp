@@ -1,23 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-cn">
+<%@include file="head.jspf" %>
+<body>
+    <div class="container">
+        <%@include file="header.jspf" %>
 
-<jsp:include page="header.jsp" />
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <ul class="nav">
-                                <li class="active"><a href="<c:url value="/"/>">主页</a></li>
-                                <li><a href="<c:url value="/repository"/>">问卷库</a></li>
-                                <li><a href="<c:url value="/get-started"/>">使用教程</a></li>
-                                <li><a href="<c:url value="/service"/>">服务</a></li>
-                                <li><a href="<c:url value="/community"/>">社区支持</a></li>
-                                <li><a href="<c:url value="/about"/>">关于我们</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div><!-- END OF .navbar -->
-            </div><!-- END OF #header -->
-        </div><!-- END OF .row -->
+        <script type="text/javascript">
+            $('#nav-home').addClass('active');
+        </script>
 
         <!-- Main Content -->
         <div id="mainContent" class="row">
@@ -63,5 +57,8 @@
             </div><!-- END OF .detail -->
         </div>
         <!-- END OF #details -->
+    </div><!-- END OF .container -->
 
-<jsp:include page="footer.jsp" />
+<%@include file="footer.jspf" %>
+</body>
+</html>

@@ -25,6 +25,7 @@ package cn.edu.seu.cose.jellyjolly.quizard.dao.impl;
 
 import cn.edu.seu.cose.jellyjolly.quizard.dao.QuizPackDataAccess;
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
+import cn.edu.seu.cose.jellyjolly.quizard.model.QuizLink;
 import cn.edu.seu.cose.jellyjolly.quizard.model.QuizPack;
 import cn.edu.seu.cose.jellyjolly.spell.Quiz;
 import java.util.HashMap;
@@ -93,6 +94,18 @@ public class MockQuizPackDataAccess implements QuizPackDataAccess {
             ++i;
         }
         return list;
+    }
+
+    @Override
+    public List<QuizLink> getQuizLinksOrderByCreationTime(int offset,
+            int limit) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<QuizLink> getQuizLinksOrderByAnsweredCount(int offset,
+            int limit) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override

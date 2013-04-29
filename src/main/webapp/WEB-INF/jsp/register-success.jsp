@@ -1,28 +1,13 @@
-<%--
-    Document   : register-success
-    Created on : 2013-4-28, 19:58:41
-    Author     : rAy <predator.ray@gmail.com>
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<jsp:include page="header.jsp" />
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <ul class="nav">
-                                <li><a href="<c:url value="/"/>">主页</a></li>
-                                <li><a href="<c:url value="/repository"/>">问卷库</a></li>
-                                <li><a href="<c:url value="/get-started"/>">使用教程</a></li>
-                                <li><a href="<c:url value="/service"/>">服务</a></li>
-                                <li><a href="<c:url value="/community"/>">社区支持</a></li>
-                                <li><a href="<c:url value="/about"/>">关于我们</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div><!-- END OF .navbar -->
-            </div><!-- END OF #header -->
-        </div><!-- END OF .row -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-cn">
+<%@include file="head.jspf" %>
+<body>
+    <div class="container">
+        <%@include file="header.jspf" %>
 
         <!-- register success -->
         <div id="register-success">
@@ -33,7 +18,7 @@
                     <p>
                         <a href="<c:url value="/"/>">返回主页</a>
                         <span>&middot;</span>
-                        <a href="<c:out value="/login"/>">登录账户</a>
+                        <a href="<c:url value="/login"/>">登录账户</a>
                     </p>
                 </div>
             </div>
@@ -41,4 +26,9 @@
                 <div class="span"></div>
             </div>
         </div>
-<jsp:include page="footer.jsp" />
+
+    </div><!-- END OF .container -->
+
+<%@include file="footer.jspf" %>
+</body>
+</html>

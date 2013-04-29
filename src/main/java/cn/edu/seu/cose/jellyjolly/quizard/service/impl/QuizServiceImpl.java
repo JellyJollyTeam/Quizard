@@ -59,12 +59,14 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public List<QuizLink> getNewestQuizLinks(int offset, int limit) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return quizPackDataAccess.getQuizLinksOrderByCreationTime(
+                offset, limit);
     }
 
     @Override
     public List<QuizLink> getHottestQuizLinks(int offset, int limit) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return quizPackDataAccess.getQuizLinksOrderByAnsweredCount(
+                offset, limit);
     }
 
     @Override
