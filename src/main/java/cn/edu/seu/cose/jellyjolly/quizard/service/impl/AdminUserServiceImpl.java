@@ -27,6 +27,7 @@ import cn.edu.seu.cose.jellyjolly.quizard.dao.AdminUserDataAccess;
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import cn.edu.seu.cose.jellyjolly.quizard.service.AdminUserService;
 import cn.edu.seu.cose.jellyjolly.quizard.service.AuthenticationException;
+import cn.edu.seu.cose.jellyjolly.quizard.service.UserInputFormatException;
 import java.util.regex.Pattern;
 
 /**
@@ -49,10 +50,10 @@ public class AdminUserServiceImpl implements AdminUserService {
     public AdminUser authenticate(String usernameOrEmail, String password)
             throws AuthenticationException {
         AdminUser adminUser = null;
-        if (isUsername(usernameOrEmail)) {
+        if (matchUsernameFormat(usernameOrEmail)) {
             adminUser = adminUserDataAccess.getAdminUserByUsernameIfConfirmed(
                     usernameOrEmail, password);
-        } else if (isEmail(usernameOrEmail)) {
+        } else if (matchEmailFormat(usernameOrEmail)) {
             adminUser = adminUserDataAccess.getAdminUserByEmailIfConfirmed(
                     usernameOrEmail, password);
         }
@@ -66,6 +67,11 @@ public class AdminUserServiceImpl implements AdminUserService {
     @Override
     public AdminUser createAdminUser(String username, String password,
             String email) {
+        if (!matchUsernameFormat(username)
+                || !matchEmailFormat(email)
+                || !matchPasswordFormat(password)) {
+            throw new UserInputFormatException();
+        }
         return adminUserDataAccess.registerNewAdminUser(
                 username, email, password);
     }
@@ -89,6 +95,9 @@ public class AdminUserServiceImpl implements AdminUserService {
             return false;
         }
 
+        if (!matchPasswordFormat(newPass)) {
+            throw new UserInputFormatException();
+        }
         adminUser.setPassword(newPass);
         adminUserDataAccess.updateAdminUser(adminUser);
         return true;
@@ -104,11 +113,18 @@ public class AdminUserServiceImpl implements AdminUserService {
         return adminUserDataAccess.getAdminUserByEmail(email) != null;
     }
 
-    private boolean isUsername(String input) {
+    @Override
+    public boolean matchUsernameFormat(String input) {
         return Pattern.matches(USERNAME_REGEX, input);
     }
 
-    private boolean isEmail(String input) {
+    @Override
+    public boolean matchEmailFormat(String input) {
         return Pattern.matches(EMAIL_REGEX, input);
+    }
+
+    @Override
+    public boolean matchPasswordFormat(String input) {
+        return (input != null) && (input.length() >= 6 && input.length() <= 20);
     }
 }

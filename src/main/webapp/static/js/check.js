@@ -27,7 +27,7 @@ var errorMessages = {
     '#email' : "请输入正确的电子邮件",
     '#password' : "请输入正确的密码：长度6~20",
     '#confirm' : "两次密码输入不相同"
-}
+};
 
 var registerChecker = {
     '#username' : {
@@ -56,13 +56,13 @@ var registerChecker = {
     },
     '#confirm' : {
         'check' : function(txt) {
-            return $('#password').val() == txt;
+            return $('#password').val() === txt;
         },
         'error' : function(element) {
             showErrorMsg(errorMessages['#confirm']);
         }
     }
-}
+};
 
 function showErrorMsg(msg) {
     $('#errorMsg').removeClass("hidden");
@@ -74,13 +74,13 @@ function hideErrorMsg() {
     $('#errorMsg').addClass("hidden");
 }
 
-function checkRegister() {
+function checkRegister(checker) {
     hideErrorMsg();
-    for (var selector in registerChecker) {
+    for (var selector in checker) {
         var element = $(selector);
-        eval('var check = ' + registerChecker[selector]['check']);
+        eval('var check = ' + checker[selector]['check']);
         if (!check(element.val())) {
-            eval('var error = ' + registerChecker[selector]['error']);
+            eval('var error = ' + checker[selector]['error']);
             error(element);
             element.focus();
             return false;

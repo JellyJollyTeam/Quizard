@@ -32,23 +32,24 @@ import cn.edu.seu.cose.jellyjolly.spell.QuizTitle;
 import cn.edu.seu.cose.jellyjolly.spell.QuizVisitor;
 import cn.edu.seu.cose.jellyjolly.spell.SingleChoice;
 import cn.edu.seu.cose.jellyjolly.spell.SingleTextbox;
+import org.apache.commons.lang.StringEscapeUtils;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
+import java.io.IOException;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
-public class QuestionRenderVisitorTag extends TagSupport
-        implements QuizVisitor {
+public class QuestionRenderVisitorTag extends TagSupport {
 
-    private QuizElement quizElement;
+    private QuizHtmlPrinter printer = new QuizHtmlPrinter();
 
     @Override
     public int doStartTag() throws JspException {
-        quizElement.accept(this);
         return Tag.EVAL_BODY_INCLUDE;
     }
 
@@ -57,52 +58,11 @@ public class QuestionRenderVisitorTag extends TagSupport
         return Tag.EVAL_PAGE;
     }
 
-    public void setQuizElement(QuizElement quizElement) {
-        this.quizElement = quizElement;
+    public void setQuiz(Quiz quiz) {
+        quiz.accept(printer);
     }
 
     private JspWriter getWriter() {
         return pageContext.getOut();
-    }
-
-    @Override
-    public void visit(QuizTitle quizTitle) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void visit(QuizText quizText) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void visit(SingleChoice singleChoice) {
-        JspWriter out = getWriter();
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void visit(MultipleChoice multipleChoice) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void visit(SingleTextbox singleTextBox) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void visit(MultipleTextbox multipleTextBox) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void visit(Quiz quiz) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void visit(QuizElement quizElement) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

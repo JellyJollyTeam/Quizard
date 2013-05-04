@@ -25,11 +25,11 @@
 
             <!-- REGISTER FORM -->
             <div id="rightMain" class="span3">
-                <form action="<c:url value="/register?quickaccess"/>" method="post" class="form-horizontal">
+                <form id="quickRegister" action="<c:url value="/register"/>" method="post" class="form-horizontal">
                     <p><input type="text" name="username" placeholder="用户名" /></p>
                     <p><input type="text" name="email" placeholder="邮箱" /></p>
                     <p><input type="password" name="password" placeholder="密码" /></p>
-                    <p><a class="btn btn-large btn-info" type="button">注册</a></p>
+                    <p><a class="btn btn-large btn-info" type="button" onclick="$('#quickRegister').submit();">注册</a></p>
                 </form>
             </div><!-- END OF .span4 -->
         </div><!-- END OF .row -->

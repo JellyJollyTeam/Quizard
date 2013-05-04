@@ -28,6 +28,7 @@ import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import cn.edu.seu.cose.jellyjolly.quizard.model.QuizLink;
 import cn.edu.seu.cose.jellyjolly.quizard.model.QuizPack;
 import cn.edu.seu.cose.jellyjolly.spell.Quiz;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -76,7 +77,7 @@ public class MockQuizPackDataAccess implements QuizPackDataAccess {
     @Override
     public List<QuizPack> searchQuizPacks(String keyword, int offset,
             int limit) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return Collections.EMPTY_LIST;
     }
 
     @Override
@@ -99,13 +100,13 @@ public class MockQuizPackDataAccess implements QuizPackDataAccess {
     @Override
     public List<QuizLink> getQuizLinksOrderByCreationTime(int offset,
             int limit) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return Collections.EMPTY_LIST;
     }
 
     @Override
     public List<QuizLink> getQuizLinksOrderByAnsweredCount(int offset,
             int limit) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return Collections.EMPTY_LIST;
     }
 
     @Override

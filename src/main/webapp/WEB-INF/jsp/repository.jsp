@@ -105,6 +105,8 @@
             </div><!-- END OF .span10 .offset1 -->
         </div><!-- END OF #repository -->
 
+    </div><!-- END OF .container -->
+
 <%@include file="footer.jspf" %>
 </body>
 </html>

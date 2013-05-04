@@ -25,8 +25,6 @@ package cn.edu.seu.cose.jellyjolly.quizard.controller;
 
 import cn.edu.seu.cose.jellyjolly.quizard.model.AdminUser;
 import cn.edu.seu.cose.jellyjolly.quizard.service.AdminUserService;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -66,6 +64,19 @@ public class RegisterController {
         if (adminUserService.usernameHasRegistered(username)) {
             // 2 => username has already been registered
             return "redirect:/register?error=2";
+        }
+
+        if (!adminUserService.matchUsernameFormat(username)) {
+            // 3 => username mismatches
+            return "redirect:/register?error=3";
+        }
+        if (!adminUserService.matchPasswordFormat(password)) {
+            // 4 => password mismatches
+            return "redirect:/register?error=4";
+        }
+        if (!adminUserService.matchEmailFormat(email)) {
+            // 5 => email mismatches
+            return "redirect:/register?error=5";
         }
 
         AdminUser newUser = adminUserService.createAdminUser(username,

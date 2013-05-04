@@ -14,11 +14,12 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#username').focus();
+                    var selector = $.param('error');
                 });
             </script>
             <div class="row">
                 <div class="span4 offset2">
-                    <form id="registerForm" action="<c:url value="register" />" method="post" onsubmit="return checkRegister();">
+                    <form id="registerForm" action="<c:url value="register" />" method="post" onsubmit="return checkRegister(registerChecker);">
                         <fieldset>
                             <legend>创建你的Quizard账号</legend>
                             <div id="errorMsg" class="alert alert-error hidden"></div>

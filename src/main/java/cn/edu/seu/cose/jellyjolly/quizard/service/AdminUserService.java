@@ -34,15 +34,23 @@ public interface AdminUserService {
     AdminUser authenticate(String usernameOrEmail, String password)
             throws AuthenticationException;
 
-    AdminUser createAdminUser(String username, String password, String email);
+    AdminUser createAdminUser(String username, String password, String email)
+            throws UserInputFormatException;
 
     AdminUser getAdminUserByUsername(String username);
 
     AdminUser getAdminUserByEmail(String email);
 
-    boolean changePassword(String username, String prevPass, String newPass);
+    boolean changePassword(String username, String prevPass, String newPass)
+            throws UserInputFormatException;
 
     boolean usernameHasRegistered(String username);
 
     boolean emailHasRegistered(String email);
+
+    boolean matchUsernameFormat(String input);
+
+    boolean matchEmailFormat(String input);
+
+    boolean matchPasswordFormat(String input);
 }
