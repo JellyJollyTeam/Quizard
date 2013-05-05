@@ -16,6 +16,72 @@
                 <p class="pubinfo">2013年12月31日<a href="#">季文昊</a>发布</p>
                 <div id="quizcontent">
                     <form action="#" method="post">
+                    <q:elements var="e" no="no" quiz="${quiz}">
+                        <q:text>
+                            <p>${e.text}</p>
+                        </q:text>
+                        <q:title>
+                            <legend>${e.text}</legend>
+                        </q:title>
+                        <q:singleChoice>
+                            <label class="title" for="${q:formatQuestionName(no)}">
+                                <c:out value="${q:formatQuestionTitle(no, e.getTitle)}"
+                            </label>
+                            <c:forEach var="option" items="${e.options}" varStatus="varStatus">
+                                <label class="radio">
+                                    <c:choose>
+                                        <c:when test="${e.defaultIndex == varStatus.index}">
+                                            <input type="radio" id="${q:formatQuestionName(no)}" name="${q:formatQuestionName(no)}" checked="checked"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input type="radio" id="${q:formatQuestionName(no)}" name="${q:formatQuestionName(no)}"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </label>
+                            </c:forEach>
+                        </q:singleChoice>
+                        <q:multipleChoice>
+                            <label class="title" for="${q:formatQuestionName(no)}">
+                                <c:out value="${q:formatQuestionTitle(no, e.getTitle)}"
+                            </label>
+                            <c:forEach var="option" items="${e.options}" varStatus="varStatus">
+                                <label class="checkbox">
+                                    <c:choose>
+                                        <c:when test="${e.defaultIndex == varStatus.index}">
+                                            <input type="checkbox" id="${q:formatQuestionOption(no, varStatus.index)}" name="${q:formatQuestionOption(no, varStatus.index)}" checked="checked"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input type="checkbox" id="${q:formatQuestionOption(no, varStatus.index)}" name="${q:formatQuestionOption(no, varStatus.index)}"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </label>
+                            </c:forEach>
+                        </q:multipleChoice>
+                        <q:singleTextbox>
+                            <label class="title" for="${q:formatQuestionName(no)}">
+                                <c:out value="${q:formatQuestionTitle(no, e.getTitle)}"
+                            </label>
+                            <c:choose>
+                                <c:when test="${empty e.defaultValue}">
+                                    <input id="${q:formatQuestionName(no)}" name="${q:formatQuestionName(no)}" type="text"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <input id="${q:formatQuestionName(no)}" name="${q:formatQuestionName(no)}" type="text" value="${e.defaultValue}"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </q:singleTextbox>
+                        <q:multipleTextbox>
+                            <label class="title" for="${q:formatQuestionName(no)}">
+                                <c:out value="${q:formatQuestionTitle(no, e.getTitle)}"
+                            </label>
+                            <textarea class="span4" id="${q:formatQuestionName(no)}" name="${q:formatQuestionName(no)}" rows="10">
+                                <c:if test="${!empty e.defaultValue}">
+                                    <c:out value="e.defaultValue}"/>
+                                </c:if>
+                            </textarea>
+                        </q:multipleTextbox>
+                    </q:elements>
+                    <!--
                       <fieldset>
                         <legend>第一部分 - 基本信息</legend>
                         <label class="title" for="q_1">1. 你的名字是</label>
@@ -45,6 +111,7 @@
 
                         <button type="submit" class="btn">提交</button>
                       </fieldset>
+                      -->
                     </form>
                 </div>
             </div>

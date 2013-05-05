@@ -42,4 +42,7 @@
         <constructor-arg ref="quizService"/>
     </bean>
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.ServiceController"/>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.QuizController">
+        <constructor-arg ref="quizService"/>
+    </bean>
 </beans>

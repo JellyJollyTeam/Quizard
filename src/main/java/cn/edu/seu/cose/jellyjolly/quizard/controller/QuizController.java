@@ -54,7 +54,7 @@ public class QuizController {
         this.maxQuizCount = maxQuizCount;
     }
 
-    @RequestMapping( value = "/quiz/$(id)", method = RequestMethod.GET)
+    @RequestMapping(value = "/quiz/${id}", method = RequestMethod.GET)
     public String getQuiz(@PathVariable int id, Model model) {
 //        Quiz quiz = quizService.findQuizById(id);
 //        model.addAttribute("quiz", quiz);
@@ -69,7 +69,7 @@ public class QuizController {
         return "repository";
     }
 
-    @RequestMapping(value = "/quiz/$(id)", method = RequestMethod.POST)
+    @RequestMapping(value = "/quiz/${id}", method = RequestMethod.POST)
     public String sendAnswerSheet() {
         return null;
     }
