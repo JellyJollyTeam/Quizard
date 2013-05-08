@@ -7,9 +7,11 @@
         http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
+    <!-- Data Access Objects -->
     <bean id="adminUserDataAccess" class="cn.edu.seu.cose.jellyjolly.quizard.dao.impl.MockAdminUserDataAccess"/>
     <bean id="quizPackDataAccess" class="cn.edu.seu.cose.jellyjolly.quizard.dao.impl.MockQuizPackDataAccess"/>
 
+    <!-- Service Objects -->
     <bean id="adminUserService" class="cn.edu.seu.cose.jellyjolly.quizard.service.impl.AdminUserServiceImpl">
         <constructor-arg ref="adminUserDataAccess"/>
     </bean>
@@ -19,7 +21,9 @@
             <null/>
         </constructor-arg>
     </bean>
+    <bean id="spellService" class="cn.edu.seu.cose.jellyjolly.quizard.service.impl.SpellServiceImpl"/>
 
+    <!-- Controllers -->
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -27,10 +31,10 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.AboutController"></bean>
-    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.CommunityController"></bean>
-    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.HomepageController"></bean>
-    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.GetStartedController"></bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.AboutController"/>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.CommunityController"/>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.HomepageController"/>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.GetStartedController"/>
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.LoginController">
         <constructor-arg ref="adminUserService"/>
     </bean>
@@ -44,5 +48,8 @@
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.ServiceController"/>
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.QuizController">
         <constructor-arg ref="quizService"/>
+    </bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.SpellParserController">
+        <constructor-arg ref="spellService"/>
     </bean>
 </beans>

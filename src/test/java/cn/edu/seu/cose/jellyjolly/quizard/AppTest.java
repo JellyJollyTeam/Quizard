@@ -1,6 +1,6 @@
 package cn.edu.seu.cose.jellyjolly.quizard;
 
-import cn.edu.seu.cose.jellyjolly.quizard.tag.QuizHtmlPrinter;
+import cn.edu.seu.cose.jellyjolly.quizard.service.impl.QuizHtmlPrinter;
 import cn.edu.seu.cose.jellyjolly.spell.Quiz;
 import cn.edu.seu.cose.jellyjolly.spell.SpellParser;
 import cn.edu.seu.cose.jellyjolly.spell.parser.SpellParserImpl;

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package cn.edu.seu.cose.jellyjolly.quizard.tag;
+package cn.edu.seu.cose.jellyjolly.quizard.service.impl;
 
 import cn.edu.seu.cose.jellyjolly.spell.*;
 import org.apache.commons.lang.StringEscapeUtils;
@@ -67,8 +67,8 @@ public class QuizHtmlPrinter implements QuizVisitor {
         for (int index = 0; index < singleChoice.getOptions().length; ++index) {
             String option = singleChoice.getOptions()[index];
             builder.append("<label class=\"radio\">");
-            builder.append("<input type=\"radio\" for=\"");
-            builder.append(getChoiceName(index));
+            builder.append("<input type=\"radio\" name=\"");
+            builder.append(getQuestionName());
             builder.append("\"");
             if (defaultIndex == index) {
                 builder.append(" checked=\"checked\"");
@@ -89,7 +89,7 @@ public class QuizHtmlPrinter implements QuizVisitor {
         for (int index = 0; index < multipleChoice.getOptions().length; ++index) {
             String option = multipleChoice.getOptions()[index];
             builder.append("<label class=\"checkbox\">");
-            builder.append("<input type=\"checkbox\" for=\"");
+            builder.append("<input type=\"checkbox\" name=\"");
             builder.append(getChoiceName(index));
             builder.append("\"");
             if (contains(index, defaultIndices)) {

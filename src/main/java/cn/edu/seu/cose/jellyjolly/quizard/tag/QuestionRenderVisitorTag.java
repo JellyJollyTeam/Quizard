@@ -23,30 +23,18 @@
  */
 package cn.edu.seu.cose.jellyjolly.quizard.tag;
 
-import cn.edu.seu.cose.jellyjolly.spell.MultipleChoice;
-import cn.edu.seu.cose.jellyjolly.spell.MultipleTextbox;
 import cn.edu.seu.cose.jellyjolly.spell.Quiz;
-import cn.edu.seu.cose.jellyjolly.spell.QuizElement;
-import cn.edu.seu.cose.jellyjolly.spell.QuizText;
-import cn.edu.seu.cose.jellyjolly.spell.QuizTitle;
-import cn.edu.seu.cose.jellyjolly.spell.QuizVisitor;
-import cn.edu.seu.cose.jellyjolly.spell.SingleChoice;
-import cn.edu.seu.cose.jellyjolly.spell.SingleTextbox;
-import org.apache.commons.lang.StringEscapeUtils;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
-import java.io.IOException;
 
 /**
  *
  * @author rAy <predator.ray@gmail.com>
  */
 public class QuestionRenderVisitorTag extends TagSupport {
-
-    private QuizHtmlPrinter printer = new QuizHtmlPrinter();
 
     @Override
     public int doStartTag() throws JspException {
@@ -59,7 +47,6 @@ public class QuestionRenderVisitorTag extends TagSupport {
     }
 
     public void setQuiz(Quiz quiz) {
-        quiz.accept(printer);
     }
 
     private JspWriter getWriter() {
