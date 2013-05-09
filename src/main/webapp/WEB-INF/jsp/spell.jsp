@@ -7,10 +7,15 @@
 <%@include file="head.jspf" %>
 <body>
     <script type="text/javascript">
+    function sample() {
+        var sampleSpell = "Part 1\n--------------------\nThis is a sample.\n\n1. What's your favorite color?\n(x) Red\n() Yellow\n() Blue\n() Green\n\n2. What's your hobby?\n[x] Soccer\n[] Basketball\n[x] Badminton\n[] Others\n\n3. What's your name?\n___Alice? Bob?___\n\n4. Introduce yourself\n___I'm a programmer______\n___and sometimes a geek._\n";
+        $('#source').val(sampleSpell);
+    }
     $(document).ready(function() {
         $.ajaxSetup({
           contentType: "text/plain"
         });
+        sample();
         setInterval(parse, 1200);
         var buffer = '';
         function parse() {
@@ -33,7 +38,7 @@
         <div class="row" style="margin-top: 20px;">
             <div class="span5">
                 <h3>Spell your quiz</h3>
-                <textarea id="source" class="span5" style="background: #4e4e4e; color: #fff; overflow-y:visible; height: 200px; font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;"></textarea>
+                <textarea id="source" class="span5" style="background: #4e4e4e; color: #fff; overflow-y:visible; height: 400px; font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;"></textarea>
             </div>
             <div class="span6" style="border: 1px dashed #ccc;">
                 <form id="form" style="margin: 10px;">
