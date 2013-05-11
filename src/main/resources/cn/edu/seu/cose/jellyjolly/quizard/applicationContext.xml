@@ -52,4 +52,5 @@
     <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.SpellParserController">
         <constructor-arg ref="spellService"/>
     </bean>
+    <bean class="cn.edu.seu.cose.jellyjolly.quizard.controller.EditorController"/>
 </beans>

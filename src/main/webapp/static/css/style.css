@@ -363,6 +363,21 @@ textarea:focus {
     margin-right: 20px;
 }
 
+#editor {
+    margin-top: 30px;
+}
+
+#source {
+    overflow-y: visible;
+    height: 400px;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+#form {
+    border: 1px dashed #ccc;
+    padding: 5px;
+}
+
 .viewed {
     margin-left: 3px;
 }
@@ -406,5 +421,8 @@ textarea:focus {
     font-size: 48px;
     margin-top: 80px;
     margin-left: 40px;
+}
+
+.preview {
 }
 
